@@ -77,13 +77,81 @@ Project Quiver的设计流程主要使用的软件为Onshape和Fusion 360，由�
 
 End Chinese origin -->
 
-# 2. **Project Requirements**
+# 2. PROJECT REQUIREMENTS 
 
-Hey guys how are you doing
+### 2.1 Flight-Critical Systems
 
-# 3. **Prototype Specifications**
+Project Quiver PT1 must incorporate robust and reliable flight-critical systems to ensure safe and predictable flight performance. The UAV shall feature advanced flight-control electronics that maintain stable operation under varying flight conditions and payload configurations. These systems will prioritize redundancy, allowing the drone to safely land even if certain critical components fail during flight operations.
 
-Hey guys how are you doing
+### 2.2 Structural Integrity and Components
+
+The structural frame shall leverage commercially available, off-the-shelf components to enable rapid assembly and ease of replacement. The chosen materials must be lightweight yet strong enough to sustain heavy lift operations, accommodating considerable payload capacities without compromising durability or structural safety. Additionally, the structural configuration must allow flexibility for future iterations.
+
+### 2.3 Electrical Systems and Power Management
+
+A simplified and robust electrical system shall be designed, ensuring reliability and ease of troubleshooting. Commercially available battery packs must support adequate flight durations, providing sufficient power for continuous flight under maximum payload conditions. The power system should include protective features such as circuit breakers or fuses, mitigating the risk of electrical overload or failures.
+
+### 2.4 Payload Integration and Imaging
+
+The UAV prototype shall integrate a stabilized camera system mounted on a gimbal, providing steady, high-quality video feeds to ground operators. An adaptable payload attachment mechanism must enable rapid payload swaps in-field, thus maximizing versatility across various mission profiles.
+
+### 2.5 Flight Testing and Verification
+
+A comprehensive testing program is required for PT1, verifying core flight performance, structural strength, electrical reliability, and payload handling capabilities. Testing should document essential parameters and establish baseline operational limits, providing valuable data to inform subsequent design iterations.
+
+----------
+
+# 3. PROTOTYPE SPECIFICATIONS
+
+### 3.1 Flight-Critical Systems
+
+-   **Flight Controller**: Utilize Pixhawk or an equivalent open source controller capable of advanced flight management, precision navigation, and autonomous flight modes. Must include redundancy across critical sensors (IMU, GPS, barometer).
+-   **Navigation Sensors**: Include dual GNSS modules, providing high accuracy positioning with Real-Time Kinematics (RTK) support to facilitate precise waypoint navigation and payload delivery.
+
+### 3.2 Structure and Geometry
+
+-   **Frame Material**: Employ carbon fiber tubes interconnected with aluminum joints for strength-to-weight optimization. The frame configuration shall accommodate interchangeable arm sections to simplify repairs and upgrades.
+-   **Maximum Takeoff Weight (MTOW)**: Prototype must support a total weight exceeding 25 kg.
+-   **Payload Capacity**: Minimum payload capability of 10 kg is required to validate heavy-lift capabilities.
+-   **Structural Safety Factor**: Structural integrity must ensure a safety factor of at least 2.5 times the maximum anticipated operational loads.
+
+### 3.3 Propulsion and Power
+
+-   **Motors and ESCs**: Select commercial-grade brushless DC motors rated for 12S to 14S battery configurations, paired with ESCs capable of sustaining at least 80A continuous current, ensuring sufficient thrust-to-weight performance.
+-   **Battery System**: LiPo or Li-Ion battery packs rated at 12S or 14S voltage levels must guarantee a minimum of 20 minutes endurance under fully loaded conditions.
+-   **Propellers**: Integrate foldable carbon-fiber propellers optimized specifically for heavy-lift efficiency, minimizing noise and maximizing flight endurance.
+
+### 3.4 Electrical Systems
+
+-   **Electrical Layout**: Wiring harnesses shall be modular and clearly labeled for ease of maintenance and fault isolation. All wiring must be heat-resistant and abrasion-resistant to withstand harsh operational environments.
+-   **Power Distribution**: Install dedicated circuit breakers or resettable fuses to protect critical flight electronics and payload circuits from potential short circuits or electrical surges.
+
+### 3.5 Payload Handling and Camera
+
+-   **Gimbal System**: Implement a 3-axis stabilized gimbal, providing precise control of camera orientation to deliver steady footage even in turbulent flight conditions.
+-   **Camera Capabilities**: Equip PT1 with a camera capable of delivering at least 1080p resolution at 30fps, streaming live footage directly to the ground control system with minimal latency.
+-   **Payload Attachment Interface**: Establish a quick-release payload rail system with adjustable balance points, enabling secure payload attachment and easy in-field interchangeability.
+
+### 3.6 Flight Control and Telemetry
+
+-   **Communication Systems**: Employ telemetry links capable of maintaining reliable communication over distances of at least 2 km, utilizing 900 MHz or 2.4 GHz bands, backed by a redundant 433 MHz communication link as a fallback option.
+-   **Ground Control Station (GCS)**: Real-time telemetry data, including flight parameters, payload conditions, and battery health, must be continuously transmitted to the operator’s interface.
+
+### 3.7 Environmental and Operational Specifications
+
+-   **Operating Temperature**: The drone shall reliably operate in a temperature range from -10°C to +45°C, enabling effective use in diverse environmental conditions.
+-   **Wind and Moisture Resistance**: Prototype must maintain stable flight control in wind speeds up to 25 km/h and include basic splash-resistant protection for electrical and propulsion systems, protecting against incidental moisture exposure.
+
+### 3.8 Maintenance, Assembly, and Documentation
+
+-   **Assembly Instructions**: BOMs and detailed assembly instructions should be created and provided.
+-  **Assembly Efficiency**: Assembly of the UAV, including installation of payloads and batteries, shall be achievable within 60 minutes by trained personnel from packaged state.
+-   **Maintenance Schedule**: A clear and concise maintenance manual detailing procedures and inspection intervals must be provided.
+
+### 3.9 Flight Testing and Validation
+
+-   **Initial Flight Tests**: Conduct controlled test flights covering hover stability, maneuverability, payload management, and endurance under realistic operational scenarios. All results and incidents should be carefully documented.
+-   **Documentation**: Provide comprehensive documentation, including flight logs, inspection reports, photographic and video evidence of successful testing outcomes, ensuring traceability of performance improvements for future iterations.
 
 # 4. **Mission Performance**
 
