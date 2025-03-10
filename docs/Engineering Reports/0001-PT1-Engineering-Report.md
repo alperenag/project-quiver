@@ -256,6 +256,21 @@ The electrical layout for Quiver was centered around the custom power PCB. Origi
 <details>
 <summary><h4>Battery</h4></summary>
 <br>
+Tattu 3.5 14S - 53.2V 30000 mAh
+  
+  ![image](https://github.com/user-attachments/assets/f9de309c-b8de-4f88-8e58-4c6bc1f1584d)
+
+  - Capable of CAN communication. Current battery used is on firmware xx.xx and was not compatible with Ardupilot.
+  - Battery side connector: Molex EXTreme 46562-9206 manually latching with 46562-9306 = 46562-2657 (a non-official part number)
+  - Mates to: Molex EXTreme 46437-9206 manually latching with 46437-9306
+  - See Propulsion System for detailed specs
+
+Battery Adapter
+
+  ![image](https://github.com/user-attachments/assets/3478ce1d-afa3-4890-ba8c-84ed99c1ae57)
+
+  - Installation notes: Used [6 AWG compression lugs](https://www.mcmaster.com/6926K75/) and 1/4" screw for installation  
+
 
 </details>
 
@@ -264,6 +279,12 @@ The electrical layout for Quiver was centered around the custom power PCB. Origi
 <br>
   
 #### 12V Regulator
+[MEAN WELL RSDW40G-12](https://www.mouser.com/ProductDetail/709-RSDW40G-12)
+
+![image](https://github.com/user-attachments/assets/13960d5f-7f96-4037-a489-a25e96aab6e5)
+
+- 40W Rating
+
 
 #### 5V Regulator
 
@@ -277,9 +298,14 @@ The electrical layout for Quiver was centered around the custom power PCB. Origi
 - [8 Pos Connector](https://www.mouser.com/ProductDetail/571-1-776280-1)
   - Used for radar altimeter power and CAN needs
 - [14 Pos Connector](https://www.mouser.com/ProductDetail/571-1-776267-1)
-  - Used for power and signal to Brush Bullet Dispenser 
+  - Used for power and signal to Brush Bullet Dispenser
+
+ Detailed pinouts can be found in the TO/FROM table. 
 
 #### Design Files
+[CAD and Fab files](https://drive.google.com/drive/folders/1PsYq2oiq2gbZsiwGzrd3abQwZkTmpPvH)
+![image](https://github.com/user-attachments/assets/00324fd2-4791-43d9-abb5-c59f96e81a34)
+
 
 </details>
 
@@ -357,8 +383,8 @@ The electrical layout for Quiver was centered around the custom power PCB. Origi
 | Power PCB POS Bus A | M5 Ring Terminal | Contactor A | M5 Ring Terminal | custom |  |  |  |
 | Contactor B  | M5 Ring Terminal | Power PCB POS Bus B | M5 Ring Terminal  | custom |  |  |  |
 | Contactor AUX | loose cables | PowerPCB  | Screw Terminal J8 | custom |  |  | will have to extend cables. Note current layout for wiring |
-| Power PCB | HDR 14POS R/A Pins 3,4,5,6 (J19) | Brush Bullet Dispenser Attachment  | 10 pos JST | 40 | 20 | 5V,GND,12V,GND | 2 pins for 12V and GND each. Power for relay and motor |
-| Power PCB  | PWM Pin 1 (J9) | Brush Bullet Dispenser Attachment | 10 pos JST  | 40 | 24 | Signal | signal for relay  |
+| Power PCB | HDR 14POS R/A Pins 3,4,5,6 (J19) | Brush Bullet Dispenser Attachment  | 8 pos JST | 40 | 20 | 5V,GND,12V,GND | 3 pins for 12V and GND (2) each, power for relay and motor |
+| Power PCB  | PWM Pin 1 (J9) | Brush Bullet Dispenser Attachment | 8 pos JST  | 40 | 24 | Signal | signal for relay  |
 | Power PCB  | PWM Pin 2 (J9) | Arduino MKRWiFi 1010 Pin A1 - 16 (J14) | Header or solder |  |  | Signal | Signal from Pixhawk to enable precharge and contactor close  |
 | Brush Bullet Dispenser Attachment  | Solder Pad | Brush Bullet Relay (COM) | Screw terminal  |  | 20 | 12V + |  |
 | Brush Bullet Relay (NO) | Screw Terminal  | Brush Bullet Motor  | Solder heat shrink  |  | 20 | 12V + |  |
@@ -383,7 +409,22 @@ The electrical layout for Quiver was centered around the custom power PCB. Origi
 | PM02D | XT30 (M or F?) | HM30 TX | XT30 M |  | 16 | 12V |  |
 | HM30 TX | Ethernet | SIYI A8 Gimbal  | 8 Pin Molex |  |  | LAN & PWR |  |
 
+#### Wiring Notes
 
+- Connection from the Power PCB to the attachment interface for the brush bullet dispenser relied on heat shrink with solder. This was mainly done to allow a conenction from a 20 AWG cable to 24 AWG cable. Some lines were doubled up to account for the higher current needs with a smaller cable. The following cable scheme was used:
+
+  - 12V
+    - 3 cables for positive
+        -Green, Blue, and Yellow
+    - 2 cables for negative
+        - Orange and White
+  - 5V
+    - Red for Positive
+    - Black for negative
+  - Signal
+    - Brown 
+
+- Last minute change to wiring was done by connecting the UBEC directly to the battery adapter. A XXX connector was used with XX AWG cables to connect the UBEC to the same bolts being used for the compression lugs. 
 # 8. **Geometry & Structure**
 
 Hey guys how are you doing
