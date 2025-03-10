@@ -237,7 +237,152 @@ Follow manufacturer guidelines for secure mechanical mounting, correct internal 
 
 # 7. **Electrical System**
 
-Hey guys how are you doing
+This section provides a comprehensive overview of the electrical design and integration work carried out for the V1 prototype of Project Quiver. It details the planning, layout, and execution of the power and signal systems essential for the first iteration fo Project Quiver, which is engineered to deploy a brush bullet payload. The report outlines power and signal layouts, block diagrams, and wiring schematics, along with an in-depth review of the selected components—from battery systems and power distribution boards to flight controllers and ESCs. Finally, it covers critical considerations such as wiring methods, connector selection, and the integration of control signals via Arduino and Pixhawk interfaces.
+
+### 7.1 System Design and Layout
+
+#### Image X: Power Layout
+
+![image](https://github.com/user-attachments/assets/05333e1d-f8c6-4020-a132-c4570d2996ca)
+
+#### Image X: Signal Layout
+
+![image](https://github.com/user-attachments/assets/7db0d55c-c13d-4540-8c1c-73a995291524)
+
+The electrical layout for Quiver was centered around the custom power PCB. Originally designed for a Project Feather testbed, the PCB housed many components that suported CAN, PWM, battery voltage, 12V, 5V, and contactor control. The power PCB acted as the central hub for all power and communication needs.
+
+### 7.2 Hardware Selection 
+
+<details>
+<summary><h4>Battery</h4></summary>
+<br>
+
+</details>
+
+<details>
+<summary><h4>Power PCB</h4></summary>
+<br>
+  
+#### 12V Regulator
+
+#### 5V Regulator
+
+#### Contactor Control
+
+#### Arduino
+
+#### Automotive Connectors
+- [23 Pos Connector](https://www.mouser.com/ProductDetail/571-1-776087-1)
+  - Used for CAN, GPIO signals, and GND to the Pixhawk
+- [8 Pos Connector](https://www.mouser.com/ProductDetail/571-1-776280-1)
+  - Used for radar altimeter power and CAN needs
+- [14 Pos Connector](https://www.mouser.com/ProductDetail/571-1-776267-1)
+  - Used for power and signal to Brush Bullet Dispenser 
+
+#### Design Files
+
+</details>
+
+<details>
+<summary><h4>UBEC</h4></summary>
+<br>
+
+</details>
+
+<details>
+<summary><h4>XT60 Splitter</h4></summary>
+<br>
+
+</details>
+
+<details>
+<summary><h4>ESC</h4></summary>
+<br>
+
+</details>
+
+<details>
+<summary><h4>Flight Controller</h4></summary>
+<br>
+
+</details>
+
+<details>
+<summary><h4>Radar Altimeter</h4></summary>
+<br>
+
+</details>
+
+<details>
+<summary><h4>GPS</h4></summary>
+<br>
+
+</details>
+
+<details>
+<summary><h4>Telemetry</h4></summary>
+<br>
+
+</details>
+
+<details>
+<summary><h4>Gimbal Camera</h4></summary>
+<br>
+
+</details>
+
+<details>
+<summary><h4>Brush Bullet Dispenser</h4></summary>
+<br>
+
+</details>
+
+<details>
+<summary><h4>Battery</h4></summary>
+<br>
+
+</details>
+
+
+### 7.3 Wiring Diagram
+
+![image](https://github.com/user-attachments/assets/6c6033d5-139c-4bda-8aa5-4d28adead154)
+
+#### Table X: TO/FROM Connections
+
+| FROM | Connector | TO | Connector | Cable Length (cm) | AWG | Type | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 12S Tattu Smart Battery | Tattu Adapter  | Power PCB | XT90 |  | 6  | 50V | Location (?) |
+| 12S Tattu Smart Battery  | Tattu Adapter | Power PCB | HDR 14POS R/A Pins 7&8 (J19) |  | 20 | CANB | J19 Pin 7 & 8 |
+| Power PCB POS Bus A | M5 Ring Terminal | Contactor A | M5 Ring Terminal | custom |  |  |  |
+| Contactor B  | M5 Ring Terminal | Power PCB POS Bus B | M5 Ring Terminal  | custom |  |  |  |
+| Contactor AUX | loose cables | PowerPCB  | Screw Terminal J8 | custom |  |  | will have to extend cables. Note current layout for wiring |
+| Power PCB | HDR 14POS R/A Pins 3,4,5,6 (J19) | Brush Bullet Dispenser Attachment  | 10 pos JST | 40 | 20 | 5V,GND,12V,GND | 2 pins for 12V and GND each. Power for relay and motor |
+| Power PCB  | PWM Pin 1 (J9) | Brush Bullet Dispenser Attachment | 10 pos JST  | 40 | 24 | Signal | signal for relay  |
+| Power PCB  | PWM Pin 2 (J9) | Arduino MKRWiFi 1010 Pin A1 - 16 (J14) | Header or solder |  |  | Signal | Signal from Pixhawk to enable precharge and contactor close  |
+| Brush Bullet Dispenser Attachment  | Solder Pad | Brush Bullet Relay (COM) | Screw terminal  |  | 20 | 12V + |  |
+| Brush Bullet Relay (NO) | Screw Terminal  | Brush Bullet Motor  | Solder heat shrink  |  | 20 | 12V + |  |
+| Bush Bullet Dispenser Attachment  | Solder Pad | Brush Bullet Motor | Solder heat shrink  |  | 20 | 12V GND |  |
+| Brush Bullet Dispenser Attachment  | Solder Pad | Brush Bullet Relay (DC+, DC-, IN) | Screw terminal  |  | 20 | 5V, GND, EN |  |
+| Power PCB | HDR 23POS R/A Pins 8,11,12 (J17) | Pixhawk CAN 2 | 2mm Molex 4-pin  | 60 | 20 | CANB L, H, GND | will have to use a self solder heat shrink to 24 AWG cable |
+| Power PCB | HDR 23POS R/A Pins 1 & 2 (J17) | Pixhawk PWM Main Pin 8 & 7  | Header  | 60 |  | PWM | Send enable signal to  |
+| Power PCB | HDR 8POS R/A Pins 6,7,8 (J12) | Radar Altimeter  | Custom |  |  | CAN, 5V | Need to move to CAN B (?)  |
+| Power PCB  | XT90 F | TL60-10 | XT90 M (Solder Cables) |  |  |  |  |
+| TL60-10 | XT60 | ESC1 | Crimp or XT60 | 83 |  | 50V |  |
+| ESC1 | Unsure | Pixhawk CAN | 2mm Molex 4-pin  | 83 + ? | 24 | CAN L, H, GND | I2C Splitter |
+| TL60-10 | XT60 | ESC2 | Crimp or XT60 | 83 | 8 | 50V |  |
+| ESC2 | Unsure | Pixhawk CAN | 2mm Molex 4-pin  | 83 + ? | 24 | CAN L, H, GND | I2C Splitter |
+| TL60-10 | XT60 | ESC3 | Crimp or XT60 | 83 | 8 | 50V |  |
+| ESC3 | Unsure | Pixhawk CAN | 2mm Molex 4-pin  | 83 + ? | 24 | CAN L, H, GND | I2C Splitter |
+| TL60-10 | XT60 | ESC4 | Crimp or XT60 | 83 | 8 | 50V |  |
+| ESC4 | Unsure  | Pixhawk CAN | 2mm Molex 4-pin  | 83 + ? | 24 | CAN L, H, GND | I2C Splitter |
+| Tattu Adapter | Spade Terminal  | UBEC Switch | Crimp or XT30 | UBEC Default | 16 | 50V | Positive cable to switch only  |
+| UBEC Swtich  | XT30 | UBEC |  |  |  |  |  |
+| UBEC | XT30 M | PM02D | XT30 F | Cockpit height | 16 | 12V |  |
+| PM02D | XT30 (M or F?) | Pixhawk Power 1 | [2mm Pitch Molex 6-pin](https://www.molex.com/en-us/products/part-detail/5024430670) | Default  | 24 | 5V, I2C |  |
+| PM02D | XT30 (M or F?) | HM30 TX | XT30 M |  | 16 | 12V |  |
+| HM30 TX | Ethernet | SIYI A8 Gimbal  | 8 Pin Molex |  |  | LAN & PWR |  |
+
 
 # 8. **Geometry & Structure**
 
