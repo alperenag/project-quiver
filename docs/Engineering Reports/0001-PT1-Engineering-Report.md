@@ -333,6 +333,137 @@ On the PCB, the contactor works in hand with a pre-charge circuit for safe opera
   <br>
 
    [Quiver PT1 sketch.zip](https://github.com/user-attachments/files/19173234/Quiver.PT1.sketch.zip)
+      
+      ```Arduino
+      #include "thingProperties.h"
+      #include "WiFiNINA.h"
+      #include "utility/wifi_drv.h"
+      
+      int contactor_pin = 2;
+      int precharge_pin = 1;
+      int led_green_pin = 26; // Green LED
+      int led_red_pin = 25;   // Red LED
+      int led_blue_pin = 27;  // Blue LED
+      
+      int control_input_pin = 16; // Placeholder digital input pin for contactor control
+      
+      unsigned long lastCloudUpdate = 0;
+      const unsigned long cloudUpdateInterval = 2000; // Call ArduinoCloud.update() every 2 seconds
+      
+      // Debounce variables
+      bool lastInputState = false;
+      bool lastStableState = false;
+      unsigned long debounceTime = 0;
+      const unsigned long requiredStableTime = 1000; // 1 second required for stable input
+      
+      void setup() {
+        Serial.begin(9600);
+        delay(1500);
+        Serial.println("Starting setup...");
+      
+        initProperties();
+      
+        // Set initial LED state: green on, red off
+        WiFiDrv::pinMode(led_green_pin, OUTPUT);
+        WiFiDrv::pinMode(led_red_pin, OUTPUT);
+        WiFiDrv::pinMode(led_blue_pin, OUTPUT);
+        WiFiDrv::analogWrite(led_green_pin, 255); // Turn on green LED
+        WiFiDrv::analogWrite(led_red_pin, 0);    // Turn off red LED
+      
+        pinMode(contactor_pin, OUTPUT);
+        digitalWrite(contactor_pin, LOW);
+      
+        pinMode(precharge_pin, OUTPUT);
+        digitalWrite(precharge_pin, LOW);
+      
+        pinMode(control_input_pin, INPUT);
+      
+        connectToWiFiAndCloud();
+      }
+      
+      void loop() {
+        unsigned long currentMillis = millis();
+      
+        // Cloud update handling
+        if (WiFi.status() == WL_CONNECTED) {
+          if (currentMillis - lastCloudUpdate >= cloudUpdateInterval) {
+            lastCloudUpdate = currentMillis;
+            ArduinoCloud.update();
+          }
+        } else {
+          Serial.println("WiFi disconnected.");
+        }
+      
+        // Read the control input state and debounce
+        bool currentInputState = digitalRead(control_input_pin);
+      
+        if (currentInputState != lastInputState) {
+          // Input state changed, reset the debounce timer
+          debounceTime = currentMillis;
+          lastInputState = currentInputState;
+        }
+      
+        // Check if the input has been stable for the required time
+        if (currentMillis - debounceTime >= requiredStableTime) {
+          if (currentInputState != lastStableState) {
+            // Update stable state and control the contactor
+            lastStableState = currentInputState;
+            contactor_control = currentInputState;  // Update contactor control state
+            onContactorControlChange();
+          }
+        }
+      }
+      
+      void connectToWiFiAndCloud() {
+        Serial.println("Connecting to WiFi...");
+        WiFi.begin(SECRET_SSID, SECRET_OPTIONAL_PASS);
+        unsigned long startAttemptTime = millis();
+        const unsigned long wifiTimeout = 2000; // 2 seconds timeout
+      
+        while (WiFi.status() != WL_CONNECTED && millis() - startAttemptTime < wifiTimeout) {
+          delay(500);
+          Serial.print(".");
+        }
+      
+        if (WiFi.status() == WL_CONNECTED) {
+          Serial.println("\nWiFi connected!");
+          ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+          Serial.println("Connected to Arduino IoT Cloud!");
+        } else {
+          Serial.println("\nFailed to connect to WiFi within the timeout period.");
+        }
+      }
+      
+      void onContactorControlChange() {
+        if (contactor_control) {
+          // Start precharge when contactor control is enabled
+          digitalWrite(precharge_pin, HIGH); // Turn on precharge
+          delay(5000); // Wait for 5 seconds to complete precharge
+          digitalWrite(contactor_pin, HIGH); // Close the contactor
+          delay(500); // Wait for the contactor to close
+          digitalWrite(precharge_pin, LOW); // Turn off precharge
+      
+          // Turn LED red
+          WiFiDrv::analogWrite(led_green_pin, 0); // Turn off green LED
+          WiFiDrv::analogWrite(led_red_pin, 255); // Turn on red LED
+        } 
+        else {
+          // Turn off both precharge and contactor if contactor control is disabled
+          digitalWrite(precharge_pin, LOW);
+          digitalWrite(contactor_pin, LOW);
+      
+          // Turn LED green
+          WiFiDrv::analogWrite(led_green_pin, 255); // Turn on green LED
+          WiFiDrv::analogWrite(led_red_pin, 0); // Turn off red LED
+        }
+      }
+      
+      void onPrechargeControlChange() {
+        digitalWrite(precharge_pin, precharge_control ? HIGH : LOW);
+      }
+      
+        
+      ```
 
 
   </details>
