@@ -78,7 +78,7 @@ Project Quiver的设计流程主要使用的软件为Onshape和Fusion 360，由�
 
 End Chinese origin -->
 
-# 2. PROJECT REQUIREMENTS 
+# 2. Project Requirements
 
 ### 2.1 Flight-Critical Systems
 
@@ -102,7 +102,7 @@ A comprehensive testing program is required for PT1, verifying core flight perfo
 
 ----------
 
-# 3. PROTOTYPE SPECIFICATIONS
+# 3. Prototype Specifications
 
 ### 3.1 Flight-Critical Systems
 
@@ -156,7 +156,109 @@ A comprehensive testing program is required for PT1, verifying core flight perfo
 
 # 4. **Mission Performance**
 
-Hey guys how are you doing
+Below is a mission performance analysis of maximum possible flight time for two missions: Surveillance and Waypoint Missions both under a Tattu 3.5 14S LiHV 30 Ah battery.
+
+Key assumptions:
+
+- **Usable Battery**: 21.6 Ah (after 2C derating to ~27 Ah, then a 20% reserve).  
+- **Propulsion**: 4 Hobbywing X6 Plus motors.  
+- **Mission Legs**: short, fixed‐time take‐off, climb, descent, landing; the remaining time is the main mission leg.
+- **Real-World Effects**: Climb rates, aerodynamic efficiency, battery health, and environmental conditions do not affect the performance..  
+
+## 4.1. Surveillance Mission
+
+In this mission, the aircraft hovers with 20 kg MTOW without any payload, using its camera for surveillance.
+
+### 4.1.1. Current Requirements
+
+- Hover Current (20 kg): ~40.9 A (estimated from thrust‐vs‐current data of Hobbywing X6 Plus).  
+- Take‐Off / Climb (110%): ~48.6 A  
+- Descent (90%): ~35.5 A  
+- Landing (100%): ~40.9 A
+
+### 4.1.2. Mission Leg Times
+
+- Take‐off: 0.5 min  
+- Climb: 1.5 min  
+- Descent: 1.0 min  
+- Landing: 1.0 min  
+
+Convert each to hours and multiply by current to get amp‐hours.
+
+1. **Take‐off (0.5 min)**  
+   - 0.5 min = 0.0083 hr  
+   - 48.6 A × 0.0083 hr ≈ 0.40 Ah  
+
+2. **Climb (1.5 min)**  
+   - 1.5 min = 0.025 hr  
+   - 48.6 A × 0.025 hr = 1.22 Ah  
+
+3. **Descent (1.0 min)**  
+   - 1.0 min = 0.0167 hr  
+   - 35.5 A × 0.0167 hr ≈ 0.59 Ah  
+
+4. **Landing (1.0 min)**  
+   - 1.0 min = 0.0167 hr  
+   - 40.9 A × 0.0167 hr ≈ 0.68 Ah  
+
+Sum of non‐mission legs = **2.89 Ah**.
+
+### 4.1.3. Maximum Hover Duration
+
+Remaining capacity for hover = 21.6 Ah − 2.89 Ah = **18.71 Ah**.  
+At 40.9 A (hover), available hover time = 18.71 Ah ÷ 40.9 A ≈ **0.457 hr** = ~27.4 min.
+
+**Total Surveillance Flight Time**  
+- Non‐mission legs: 0.5 + 1.5 + 1.0 + 1.0 = 4.0 min  
+- Hover: ~27.4 min  
+- **Overall**: ~31.4 min  
+
+## 4.2. Waypoint Mission
+
+In this mission, the aircraft travels with 25 kg MTOW between waypoints. The power consumption for forward flight is assumed as 120% of hover.
+
+### 4.2.1. Current Requirements
+
+- Hover Current (25 kg): ~57.5 A  
+- Forward Flight (120%): ~69 A
+- Take‐Off/Climb (110%): ~66.5 A  
+- Descent (90%): ~49.9 A  
+- Landing (100%): ~57.5 A
+
+### 4.2.2. Mission Leg Times
+
+- Take‐off: 1.0 min  
+- Climb: 2.0 min  
+- Descent: 1.0 min  
+- Landing: 1.0 min  
+
+1. **Take‐off (1.0 min)**  
+   - 1.0 min = 0.0167 hr  
+   - 66.5 A × 0.0167 hr ≈ 1.11 Ah  
+
+2. **Climb (2.0 min)**  
+   - 2.0 min = 0.0333 hr  
+   - 66.5 A × 0.0333 hr ≈ 2.22 Ah  
+
+3. **Descent (1.0 min)**  
+   - 1.0 min = 0.0167 hr  
+   - 49.9 A × 0.0167 hr ≈ 0.83 Ah  
+
+4. **Landing (1.0 min)**  
+   - 1.0 min = 0.0167 hr  
+   - 57.5 A × 0.0167 hr ≈ 0.96 Ah  
+
+Sum of these legs = **5.12 Ah**.
+
+### 4.2.3. Maximum Forward‐Flight Duration
+
+Remaining capacity for forward flight = 21.6 Ah − 5.12 Ah = **16.48 Ah**.  
+At 69 A, flight time = 16.48 Ah ÷ 69 A ≈ **0.239 hr** = ~14.3 min.
+
+**Total Loiter Flight Time**  
+- Non‐mission legs: 1.0 + 2.0 + 1.0 + 1.0 = 5.0 min  
+- Forward flight: ~14.3 min  
+- **Overall**: ~19.3 min  
 
 # 5. **Flight Mechanics**
 
@@ -682,7 +784,96 @@ Interface & Ports:
 - Last minute change to wiring was done by connecting the UBEC directly to the battery adapter. A XXX connector was used with XX AWG cables to connect the UBEC to the same bolts being used for the compression lugs. 
 # 8. **Geometry & Structure**
 
-Hey guys how are you doing
+The design of this aircraft centers on accommodating frequent modifications and upgrades, preserving straightforward access to all key components. By employing a modular architecture and standardized interface points, the system can be quickly reconfigured or expanded to integrate novel sensors, payloads, or propulsion elements. Structural integrity is achieved through robust materials such as aluminum 7075 and 3D-printed carbon fiber nylon and connections that distribute loads uniformly. This approach enables the prototype to withstand potentially harsh landings, while finite element analysis (FEA) helps validate each subsystem’s load-bearing capacity. Furthermore, by minimizing mass through efficient structural layouts and selective material use, the aircraft maintains better flight performance, high agility, and reduced power consumption to extend operational times.
+
+---
+
+## 8.1. Overall Geometry
+
+The overall geometry is largely symmetrical, with key components arranged around a central thrust plane. The battery is intentionally placed slightly above this plane, shifting the center of gravity (CG) upward. During mission, lower-mounted attachments help balance the airframe, ensuring that the CG remains near the thrust plane’s center. This symmetrical configuration, combined with the modular design, makes it straightforward to reposition or replace entire subsystems while preserving stable flight characteristics.
+
+Below is a summary of the aircraft’s key dimensional parameters:
+
+| **Parameter**           | **Measurement** |
+| ----------------------- | --------------- |
+| Folded Width            | 62 cm           |
+| Folded Length           | 60 cm           |
+| Unfolded Width          | 95 cm           |
+| Unfolded Length         | 95 cm           |
+| Overall Height          | 68 cm           |
+| Max Attachment Height   | 40 cm           |
+| Max Attachment Diameter | 30 cm           |
+
+These dimensions ensure balanced weight distribution in both folded and unfolded states while providing adequate space for payloads and accessories.
+
+### Subsystem Weight Breakdown
+
+Below is an approximate weight breakdown for each major subsystem, noting the primary materials involved. These figures are meant to serve as general estimates and may vary based on final manufacturing processes, hardware choices, and tolerances.
+
+| **Subsystem**          | **Material(s)**                           | **Approx. Weight** |
+| ---------------------- | ----------------------------------------- | ------------------ |
+| Main Chassis           | Aluminum 7075 & Carbon Fiber Nylon        | 1500 g             |
+| 4x Motor & Arm         | Carbon Fiber Tubes & Aluminum             | 4200 g             |  
+| Landing Gear           | Carbon Fiber & Aluminum                   | 800 g              |   
+| Battery Enclosure      | Carbon Fiber Nylon                        | 1100 g             |   
+| Electrical Compartment | Carbon Fiber Nylon                        | 200 g              |   
+| Avionics               | Aluminum / 3D-Printed CF Nylon            | 300 g              |   
+| Camera                 | Camera Lens & Gimbal / Equipment Holder   | 500 g              |   
+| Misc. Hardware         | Fasteners, Harness, Electrical Components | 300 g              |   
+| **Estimated Total**    | -                                         | **8900 g**         |   
+
+Please note that these weights are not definitive values and should be verified after prototype assembly and testing.
+
+---
+
+## 8.2. Detailed Zones
+
+### Main Chassis
+
+Two parallel aluminum plates—each 3/32" (2.5 mm) thick and fabricated from aluminum 7075—form the central chassis of the aircraft. These plates provide the main structural backbone. They're connected by the motor mounts on the corners and a 3D-printed carbon fiber nylon cube clamped at the center. The center cube accommodates holes on the sides to leave access for the attachment harness.
+
+---
+
+### Motors
+
+Each motor is situated at the end of a 30 cm-long, 30 mm-diameter carbon fiber arm that extends radially from the central chassis. These arms are attached to the plates using hinged, foldable connectors made of aluminum. The hinging mechanism typically includes a locking pin, which secures the arms in flight position and allows rapid folding for compact transport. The motor mounts are supplied by the motor manufacturer, embedded around the motor.
+
+---
+
+### Landing Gear
+
+The landing gear system employs 20 mm-diameter carbon fiber tubes attached with off-the-shelf aluminum housing under the central chassis. Two vertical tubes are connected to one horizontal tube on the bottom with aluminum tube connectors. The tubes position the aircraft at a large ground clearance, giving enough height for any attachments.
+
+---
+
+### Battery Enclosure
+
+Located near the geometric center of the aircraft, the battery enclosure ensures a balanced center of gravity for stable flight control. This enclosure is dimensioned to accommodate the selected battery module, as well as batteries in the same battery family with lower capacity.
+
+**Enclosure Structure:**
+
+- A 3D-printed carbon fiber nylon box that attaches directly to the upper chassis plate. It also provides two sliders for the battery, ensuring that the vertical movement is prevented.
+- A 3D-printed carbon fiber nylon hatch on the enclosure, protecting the battery from exterior. A cut-out ensures visibility for the battery on-off button and battery charge indicator.
+- A 3D-printed carbon fiber nylon cap over the enclosure, featuring integrated cut-outs for ventilation and weight reduction.
+
+---
+
+### Electrical Compartment
+
+The electrical compartment consolidates the power distribution board (PDB), battery connector, and high-voltage and signal cables between the electrical and propulsion system components. The battery connector is located on a connector stand, which has a latch to lock the battery in place. By placing the electrical compartment between the main chassis plates, the design makes the overall size of the aircraft smaller and simplifies cable routing. The PDB and battery connector are removable for any troubleshooting or replacement.
+
+---
+
+### Avionic Bay
+
+The avionic bay houses core navigation and control components, including flight controllers, GPS antennas, and telemetry antenna. By isolating these critical electronics from power systems, the design maintains cleaner data signals and more accurate sensor readings. The avionics are placed on the top of the battery enclosure.
+
+---
+
+### Belly Equipment
+
+The underside of the aircraft provides a dedicated zone for mounting the attachment, radar altimeter, and the gimbal camera. The attachment is connected to an interface utilizing a quick release mechanism. The interface is connected to the chassis for better structural support. The gimbal camera is located on a 3D-printed holder to increase the view angle. The radar altimeter is placed so that the operational field of view is not affected by the attachment and the landing gear.
+
 
 # 9. **Appendix**
 
