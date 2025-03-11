@@ -426,11 +426,32 @@ See Propulsion System section for detailed description on the [HobbyWing X6 Plus
 <summary><h4>Radar Altimeter</h4></summary>
 <br>
 
+[Us-D1 Radar Altimeter](https://ainstein.ai/us-d1-all-weather-radar-altimeter/)
+
+![image](https://github.com/user-attachments/assets/085159ff-bc1a-4e66-8f5e-fc060964ac4c)
+
+The Ainstein AI Altimeter is a small form factor device that reports reliable measurements up to 50m. The US-D1 comes with a Molex (50579204) 4-pin, 2.54mm connector. This connector required a modification in order for us to use it with the 8 position automotive connector. 
+ 
+Verify that the following parameters are used on the Flight Controller:
+- CAN_P2_DRIVER = 1 (first can port driver set to driver 1)
+- CAN_D2_PROTOCOL = 7 (USD1 protocol for driver 1)
+- RNGFND1_TYPE = 33 (USD1_CAN)
+- RNGFND1_MIN_CM = 50
+- RNGFND1_MAX_CM = 4500
+- RNGFND1_GNDCLEAR = 10 or more accurately the distance in centimeters from the range finder to the ground when the vehicle is landed. This value depends on how you have mounted the rangefinder.
+
+
+It is important to note that the altimeter should not be tested in doors to get accurate readings. Please test the altimeter outside and verify that the distance being read is correct. 
+
+
 </details>
 
 <details>
 <summary><h4>GPS</h4></summary>
 <br>
+
+- M9N and M10 GPS from Hollybro
+- connects to GPS1 and GPS2 ports on pixhawk
 
 </details>
 
@@ -438,6 +459,25 @@ See Propulsion System section for detailed description on the [HobbyWing X6 Plus
 <summary><h4>Telemetry</h4></summary>
 <br>
 
+[HM30 Air Unit](https://shop.reebot.com/products/mk32-hm30-mk15-air-unit?VariantsId=10820)
+
+![image](https://github.com/user-attachments/assets/be4fdc1a-d2c8-44c8-980a-f5e7c846466b)
+
+- Signal Output: 16 channels of S.BUS, 5 channels of PWM
+  
+Interface & Ports:
+- SBUS: 3-Pin
+- Datalink (to FC): UART 4-Pin
+- PWM Channel 1 to 5: 6-Pin
+- Video Input: Ethernet 8-Pin
+- Firmware Upgrade: Type-C
+
+- Dimensions (antenna excluded, fan included): 70 x 55 x 16 mm
+- Weight (antenna excluded): 74 g
+- Antenna Gain (standard omni): 5 dBi
+- Power Input: 11 to 16.8 V (expandable to 4S to 18S with BEC)
+
+[Integration doc](https://docs.google.com/document/d/1c7d-TiKrViZ_PJSGZGZeT6v6mQBDRZmvlZf1WeDICiA/edit?tab=t.0#heading=h.aczyuw2yex2w) prepared by Alexander Dada
 </details>
 
 <details>
