@@ -878,14 +878,17 @@ The underside of the aircraft provides a dedicated zone for mounting the attachm
 ### 8.3 FEA analysis
 
 Will demonstrate how the structure will behave under the following forces
-•12 Kg of force acting at each motor (full throttle)
-•12 kg of force acting on the cockpit (weight from all equipment)
-•The materials in the study are
-Aluminum 6061 for all the foldable motor arm connector, landing gear joints, and motor beam ends.
-Aluminum 7075 for cockpit plates
-Carbon fiber for the motor arms and land legs.
 
-**NOTE Structure is constrained at a “imaginary” plate added in the middle to simulate a solid structure with free movement.
+- 12 Kg of force acting at each motor (full throttle)
+
+- 12 kg of force acting on the cockpit (weight from all equipment)
+
+- The materials in the study are:
+  - Aluminum 6061 for all the foldable motor arm connector, landing gear joints, and motor beam ends.
+  - Aluminum 7075 for cockpit plates
+  - Carbon fiber for the motor arms and land legs.
+
+**NOTE** Structure is constrained at a “imaginary” plate added in the middle to simulate a solid structure with free movement.
 
 ### Displacement
 ![image](https://github.com/user-attachments/assets/cd100121-ce67-43da-9def-886bd7891a5a)
@@ -893,10 +896,13 @@ Carbon fiber for the motor arms and land legs.
 ![image](https://github.com/user-attachments/assets/69b82e52-3998-4c1c-b71e-9e7cb1ae806e)
 
 ### Results Summary
-•The results yielded a 1.53 safety factor, meaning that the design at full throttle is marginal and could fail if external forces (bad weather, unexpected maneuvers) are acting.
-•The max displacement of one of the motor beams reached 10.77 mm
-•The max stress occurred at the motor beam to foldable motor arm connector with a value of 17 Mpa.
-*Recommendation: Since these were the results at full throttle, it is unlikely we will be in this condition. The recommendation is to perform a bench test on the motor arm in order to see how it behaves under various throttle outputs.
+- The results yielded a 1.53 safety factor, meaning that the design at full throttle is marginal and could fail if external forces (bad weather, unexpected maneuvers) are acting.
+
+- The max displacement of one of the motor beams reached 10.77 mm
+
+- The max stress occurred at the motor beam to foldable motor arm connector with a value of 17 Mpa.
+
+**Recommendation:** Since these were the results at full throttle, it is unlikely we will be in this condition. The recommendation is to perform a bench test on the motor arm in order to see how it behaves under various throttle outputs.
 
 
 # 9. **Appendix**
