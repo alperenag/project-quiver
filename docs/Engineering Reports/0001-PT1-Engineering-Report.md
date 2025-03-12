@@ -875,7 +875,7 @@ The avionic bay houses core navigation and control components, including flight 
 The underside of the aircraft provides a dedicated zone for mounting the attachment, radar altimeter, and the gimbal camera. The attachment is connected to an interface utilizing a quick release mechanism. The interface is connected to the chassis for better structural support. The gimbal camera is located on a 3D-printed holder to increase the view angle. The radar altimeter is placed so that the operational field of view is not affected by the attachment and the landing gear.
 
 
-8.3 FEA analysis
+### 8.3 FEA analysis
 
 Will demonstrate how the structure will behave under the following forces
 •12 Kg of force acting at each motor (full throttle)
@@ -887,12 +887,12 @@ Carbon fiber for the motor arms and land legs.
 
 **NOTE Structure is constrained at a “imaginary” plate added in the middle to simulate a solid structure with free movement.
 
-Displacement
+### Displacement
 ![image](https://github.com/user-attachments/assets/cd100121-ce67-43da-9def-886bd7891a5a)
-Stress 
+### Stress 
 ![image](https://github.com/user-attachments/assets/69b82e52-3998-4c1c-b71e-9e7cb1ae806e)
 
-Results Summary
+### Results Summary
 •The results yielded a 1.53 safety factor, meaning that the design at full throttle is marginal and could fail if external forces (bad weather, unexpected maneuvers) are acting.
 •The max displacement of one of the motor beams reached 10.77 mm
 •The max stress occurred at the motor beam to foldable motor arm connector with a value of 17 Mpa.
