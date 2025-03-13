@@ -786,8 +786,8 @@ Interface & Ports:
     - 2 cables for negative
         - Orange and White
   - 5V
-    - Red for Positive
-    - Black for negative
+    - Red for Positive (+)
+    - Black for negative (-)
   - Signal
     - Brown 
 
