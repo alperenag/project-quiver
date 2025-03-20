@@ -77,28 +77,6 @@ Project Quiver的设计流程主要使用的软件为Onshape和Fusion 360，由�
 
 End Chinese origin -->
 
-# 2. PROJECT REQUIREMENTS 
-
-### 2.1 Flight-Critical Systems
-
-Project Quiver PT1 must incorporate robust and reliable flight-critical systems to ensure safe and predictable flight performance. The UAV shall feature advanced flight-control electronics that maintain stable operation under varying flight conditions and payload configurations. These systems will prioritize redundancy, allowing the drone to safely land even if certain critical components fail during flight operations.
-
-### 2.2 Structural Integrity and Components
-
-The structural frame shall leverage commercially available, off-the-shelf components to enable rapid assembly and ease of replacement. The chosen materials must be lightweight yet strong enough to sustain heavy lift operations, accommodating considerable payload capacities without compromising durability or structural safety. Additionally, the structural configuration must allow flexibility for future iterations.
-
-### 2.3 Electrical Systems and Power Management
-
-A simplified and robust electrical system shall be designed, ensuring reliability and ease of troubleshooting. Commercially available battery packs must support adequate flight durations, providing sufficient power for continuous flight under maximum payload conditions. The power system should include protective features such as circuit breakers or fuses, mitigating the risk of electrical overload or failures.
-
-### 2.4 Payload Integration and Imaging
-
-The UAV prototype shall integrate a stabilized camera system mounted on a gimbal, providing steady, high-quality video feeds to ground operators. An adaptable payload attachment mechanism must enable rapid payload swaps in-field, thus maximizing versatility across various mission profiles.
-
-### 2.5 Flight Testing and Verification
-
-A comprehensive testing program is required for PT1, verifying core flight performance, structural strength, electrical reliability, and payload handling capabilities. Testing should document essential parameters and establish baseline operational limits, providing valuable data to inform subsequent design iterations.
-
 ----------
 
 
