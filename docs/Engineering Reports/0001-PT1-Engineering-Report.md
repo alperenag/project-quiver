@@ -12,39 +12,39 @@ The purpose of Project Quiver is to design and manufacture a practical multi-pur
 
 This aircraft is designed to perform typical light UAV missions. The design concept is: compact and portable, easy to manufacture, easy to maintenance, highly reliable, highly adaptable, and expandable.
 
-The PT1 prototype of this Project Quiver will contain the following features:
-- Having a common quadcopter layout to ensure energy efficiency and structure simplified.
-- The designated maximum mission load is 25 kg. Considering the safety margin, the designated maximum thrust force is about 45 to 50 kg.
-- The motor beams and propellers can be folded to the side of the cockpit for optimized storage and transportation.
-- Standardized, quick-release mission equipment pylon (Attachment interface).
-- Has the functions supported by the digital autopilot system, such as GNSS-assisted hovering, waypoint missions, radar altimeter, etc.
-- Has FPV camera and video transmission to assist piloting and various mission actions.
-- Use 14-cells LiHV smart batteries and advanced main power connectors commonly used by heavy drones.
-- Partially use CAN bus for communication to avoid electromagnetic interference that traditional non-differential signals such as PWM may be subject to.
-- Has digitalized sensor communication to monitor more component parameters, such as battery cell temperature and ESC temperature.
-- Using integrated thrust terminal to improve the reliability and design convenience of the thrust system, and for easier sourcing, installing and initial testing.
-- Use large PDB and circuit breakers previous designed for Project Feather to improve the safety and controllability of the power distributing system.
+The PT1 prototype of Project Quiver contains the following features:
+- Having a common quadcopter layout to ensure energy efficiency and simplified structure.
+- The designated maximum mission load is 25 kg. Considering the safety factor, the designated maximum thrust force is about 45 to 50 kg.
+- The motor beams and propellers can be fold to the side of the cockpit for optimizing storage and transportation.
+- Standardized quick-release mission equipment pylon (Attachment interface).
+- Designed for common functions supported by the digital autopilot system, such as GNSS-assist hovering, waypoint missions, radar altimeter, etc.
+- Designed for FPV camera with video transmission to assist pilot decision and various mission actions.
+- Powered with 14-cell LiHV smart battery and advanced main power connectors commonly used by heavy drones.
+- Partially CAN bus design for signal communication to avoid electromagnetic interference that traditional non-differential signals such as PWM may be subject to.
+- Using digitalized sensor communication to monitor more components, such as battery cell temperature and ESC temperature.
+- Using integrated thrust terminal to improve the reliability and design convenience of the thrust system, also for easier sourcing, installing and initial testing.
+- Using large PDB and circuit breakers which previous designed for Project Feather to improve the safety and controllability of the power distributing system.
 
-Based on the above characteristics, Project Quiver will also try to compete with other UAVs on the market in terms of parameters such as endurance, empty weight ratio, open source level, and mission equipment options. It's also expected to gradually introduce more advanced designs including but not limited to the following in future prototypes:
+Based on the above characteristics, Project Quiver will also try to compete with other UAVs on the market in terms of parameters such as endurance, empty weight ratio, open source level, and mission equipment selections. It's also expected to gradually introduce more advanced designs including but not limited to the following items in future prototypes:
 - Reak-Time Kinematic (RTK) high-precision GNSS positioning
-- Dedicated PDB
+- Dedicated PDB system
 - Dedicated battery pack
 - Dedicated thrust system ESC
 - Integrated 3D printing structure
-- Hazard protection airframe
-- Multiple mission attachment interface
+- Hazard protect airframe
+- Multiple mission attachment interfaces
 - Retractable landing gear
 - Emergency ballistic parachute
 - LiDAR navigation
-- Dedicated ground control telemetry software
+- Dedicated ground control software
 - ...
 
-The initial version doesn't have a waterproof and dustproof design, the only attachment interface of the aircraft is locate on the belly of the cockpit, and flight controller unit (FCU) is on the top of the battery bay and exposed to open for easier configuration operations.   
+The initial version (PT1) doesn't have a waterproof and dustproof design, the only one attachment interface of the aircraft was located on the belly of the cockpit, and flight controller unit (FCU) was located on the top of the battery enclosure and exposed to open air for easier configuration operations.   
   
-The current first mission equipment is the herbicide dispenser "Brush Pod" (or "Brush bullet dispener"), and the first experimental commercial project is corresponding vegetation analysis and aerial dispensing services. "Brush Pod" will be installed through the standardized attachment interface on the cockpit.
+The first mission equipment is the herbicide dispenser "Brush Pod" (or "Brush bullet dispener"), and the first experimental commercial project is corresponding vegetation analysis and aerial dispensing services. "Brush Pod" was installed through the standardized attachment interface on the cockpit.
   
-The common design process of Project Quiver will uses Onshape and Fusion 360 for CAD/CAM software. They will mainly used for overall layout, structure design and finite element method (FEA) analysis.   
-Since the project does not specified the use of industrial design software, the design personnel could use any software and workflow they familiar with. Therefore, when working between multiple software, STEP or other similar formats could be used as data exchange formats.  
+The common design process of Project Quiver will uses Onshape and Fusion 360 to be the CAD/CAM software. They will mainly uses for overall layout, structure design and finite element method (FEA) analysis.   
+Since the project does not specified the use of which industrial design software, the design personnel could use any software and workflow they familiar with. Therefore, while working between multiple software, STEP or other similar formats could be used as data exchange formats.  
 
 <!-- Chinese origin 中文原文（未纠错和润色）
 
@@ -56,18 +56,18 @@ Project Quiver的目的是设计并制造一款实用性多用途多旋翼无人
 - 采用常见的四旋翼布局，以确保能源效率和结构简易。
 - 设计最大任务载荷为25公斤，考虑到安全裕度，设计最大拉力约为45至50公斤。
 - 机臂、螺旋桨桨叶可向机舱侧面折叠，以优化收纳和运输。
-- 标准化、可快拆式的任务载荷挂架（附挂接口）。
+- 标准化快拆式任务载荷挂架（附挂接口）。
 - 具备GNSS辅助悬停、航点任务、雷达高度计等数字化自动驾驶仪所支持的功能。
-- 具备FPV相机和视频传输，以辅助飞行驾驶和各类任务动作。
-- 采用大型无人机普遍使用的14串LiHV智能电池和先进的主电源连接器。
-- 部分系统使用CAN总线进行通讯，避免PWM等传统非差分信号可能受到的电磁干扰。
-- 采用数字化通讯的传感器以监视更多部件参数，例如电芯温度、ESC温度。
+- 具备FPV相机和视频传输，以辅助飞行决策和各类任务动作。
+- 由大型无人机普遍使用的14串LiHV智能电池和先进的主电源连接器供电。
+- 部分采用CAN总线设计进行信号通讯，避免PWM等传统非差分信号可能受到的电磁干扰。
+- 采用数字化通讯的传感器以监视更多部件，例如电芯温度、ESC温度。
 - 采用集成一体化动力终端，提升动力系统可靠性和设计便捷性，同时易于采购安装和初期测试。
 - 采用先前为Project Feather设计的大型PDB和断路器，以提升配电系统的安全性和可控性。
 
 基于以上特性，Project Quiver还将尝试在续航性能、空重比、开源程度、任务载荷选项等参数上与市面其他无人飞行器相角逐。并预计在未来的原型机型逐步引入包括但不限于以下内容的更先进的设计：  
 - 实时动态差分（RTK）高精度GNSS定位
-- 专用PDB
+- 专用PDB系统
 - 专用电池组
 - 专用动力系统ESC
 - 一体化3d打印结构
@@ -76,10 +76,10 @@ Project Quiver的目的是设计并制造一款实用性多用途多旋翼无人
 - 可收放起落架
 - 紧急弹道降落伞
 - 激光雷达导航
-- 专用地面站遥测软件
+- 专用地面站软件
 - ...
 
-初期版本并未采用防水防尘设计，机体的唯一一个装备挂点位于机舱腹部，且飞行控制器（FCU）安装在电池仓顶部并暴露在外，以方便调测。
+初期版本(PT1)并未采用防水防尘设计，机体的唯一一个装备挂点布置于机舱腹部，且飞行控制器（FCU）布置于电池仓顶部并暴露在外，以方便调测。
 
 目前首个任务装备为除草剂投放器“Brush Bullet Pod”（或称"Brush bullet dispener"），首个实验性商业项目为与与其相对应的植被分析、空中撒放服务。“Brush Pod”将通过标准化的快拆式任务载荷挂架安装至机舱上。
   
