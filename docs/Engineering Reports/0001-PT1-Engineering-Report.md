@@ -12,7 +12,7 @@ The purpose of Project Quiver is to design and manufacture a practical multi-pur
 
 This aircraft is designed to perform typical light UAV missions. The design concept is: compact and portable, easy to manufacture, easy to maintenance, highly reliable, highly adaptable, and expandable.
 
-The First Prototype (PT1) of this Project Quiver will contains the following features:
+The First Prototype (PT1) of this Project Quiver will contain the following features:
 - Having a common quadcopter layout to ensure energy efficiency and simplified structure.
 - The designated maximum mission load is 25 kg. Considering the safety factor, the designated maximum thrust force is about 45 to 50 kg.
 - The motor beams and propellers can be fold to the side of the cockpit for optimizing storage and transportation.
