@@ -355,11 +355,13 @@ This section provides a comprehensive overview of the electrical design and inte
 
 #### Image X: Power Layout
 
-![image](https://github.com/user-attachments/assets/05333e1d-f8c6-4020-a132-c4570d2996ca)
+![image](https://github.com/user-attachments/assets/6ae06f6c-2d1a-4417-bb88-1349a40b4968)
+
 
 #### Image X: Signal Layout
 
-![image](https://github.com/user-attachments/assets/7db0d55c-c13d-4540-8c1c-73a995291524)
+![image](https://github.com/user-attachments/assets/0eddcddc-ba53-4643-984d-880e7c772a90)
+
 
 The electrical power layout is branched off into two sections. One line dedicated to providing HV power to the ESCs via contactor control on the Power PCB. This branch additonally provides power to the PCB for all of the outgoing connections and all internal components. 
 The second line is providing HV to the UBEC to give steady and reliable power to the flight controller, telemetry air unit, and additional peripherals. The second line has a physical switch on the positive line before the UBEC to give the user control over power going to the flight controller. 
@@ -663,6 +665,11 @@ See Propulsion System section for detailed description on the [HobbyWing X6 Plus
 <summary><h4>Flight Controller</h4></summary>
 <br>
 
+[Pixhawk 6X Version ?](https://holybro.com/collections/autopilot-flight-controllers/products/pixhawk-6x)
+
+![image](https://github.com/user-attachments/assets/7f19ac07-1173-4e94-b70c-718d9ea098ff)
+
+
 </details>
 
 <details>
@@ -726,6 +733,11 @@ Interface & Ports:
 <details>
 <summary><h4>Gimbal Camera</h4></summary>
 <br>
+  
+[Siyi A8](https://shop.reebot.com/products/siyi-a8-mini-gimbal-camera) 
+  
+  ![image](https://github.com/user-attachments/assets/6b990223-65d6-430f-ab72-c1ee7a7d43f4)
+
 
 </details>
 
@@ -733,13 +745,46 @@ Interface & Ports:
 <summary><h4>Brush Bullet Dispenser</h4></summary>
 <br>
 
+[Brush Bullet Applicator Pod](https://brush-bullet.myshopify.com/products/applicator-pod) Variant 
+
+[Onshape Model](https://cad.onshape.com/documents/9d9eb91af3f6540b56a5ea5a/w/635a8ab526b8b9d145aa4388/e/e4f46004af7e190882276375)
+
+![brush-pod_assy (1)](https://github.com/user-attachments/assets/e8a8caf5-5a7f-42e7-b715-247fc49e1a25)
+
+[Relay](https://www.amazon.com/gp/product/B00LW15A4W/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
+
+A relay is used to control the motor inside of the dispenser. 5V and GND provided by PCB. Use the PWM 1 output on the PCB to send the signal from the flight controller to close the relay. The mottor was connected using the COM and NO pins on the relay. This left the motor in an off state by default. 
+
+
+![image](https://github.com/user-attachments/assets/b4e87b5c-fa6c-4776-ae2a-2b6d14b80e9c)
+
+
+[Attachment Interface](https://www.alibaba.com/product-detail/Quick-Release-Clip-Plate-Clamp-Quick_1600982145247.html?chatToken=dTVOQ0lHSDBGNnNIYWVkZGdQNnBUSmFhUzNnb3dTTktRdTFiYjZVZzJRb25RRjBPTUs0bVZqdUd5MHUvYWVCblk4R2ZnVHdnREZwTWh3bjZ6bTJmRXYwWXdUVm1sOUd3Sk5YaVRGVWpCK2h4MXlSRkhRcHk0cWI4US9VUDI5R0kmdmVyc2lvbj0xLjAuMA%3D%3D&encryptTargetLoginId=8pctgRBMALNqZAuqE6c17aH4RKPxocV0)
+
+![image](https://github.com/user-attachments/assets/8b4354ae-9992-41d4-997b-5bc75e21ce94)
+
+- Connection from the Power PCB to the attachment interface for the brush bullet dispenser relied on self soldering heatshrink . This was mainly done to allow a conenction from a 20 AWG cable to 24 AWG cable. Some lines were doubled up to account for the higher current needs with a smaller cable. The following cable scheme was used:
+
+  - 12V
+    - 3 cables for positive
+        -Green, Blue, and Yellow
+    - 2 cables for negative
+        - Orange and White
+  - 5V
+    - Red for Positive
+    - Black for negative
+  - Signal
+    - Brown 
+
+
 </details>
 
 
 
 ### 7.3 Wiring Diagram
 
-![image](https://github.com/user-attachments/assets/6c6033d5-139c-4bda-8aa5-4d28adead154)
+![image](https://github.com/user-attachments/assets/5576cf15-146d-442a-b9fa-a07dfc543800)
+
 
 #### Table X: TO/FROM Connections
 
@@ -777,19 +822,6 @@ Interface & Ports:
 | HM30 TX | Ethernet | SIYI A8 Gimbal  | 8 Pin Molex |  |  | LAN & PWR |  |
 
 #### Wiring Notes
-
-- Connection from the Power PCB to the attachment interface for the brush bullet dispenser relied on self soldering heatshrink . This was mainly done to allow a conenction from a 20 AWG cable to 24 AWG cable. Some lines were doubled up to account for the higher current needs with a smaller cable. The following cable scheme was used:
-
-  - 12V
-    - 3 cables for positive
-        -Green, Blue, and Yellow
-    - 2 cables for negative
-        - Orange and White
-  - 5V
-    - Red for Positive
-    - Black for negative
-  - Signal
-    - Brown 
 
 - Last minute change to wiring was done by connecting the UBEC directly to the battery adapter. A XXX connector was used with XX AWG cables to connect the UBEC to the same bolts being used for the compression lugs. 
 # 8. **Geometry & Structure**
