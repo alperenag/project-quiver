@@ -88,27 +88,165 @@ Project Quiver的主流设计流程将使用Onshape和Fusion 360作为电脑设�
 
 End Chinese origin 中文原文到此结束-->
 
+
+----------
+
 # 2. Project Requirements
 
 ### 2.1 Flight-Critical Systems
 
 Project Quiver PT1 must incorporate robust and reliable flight-critical systems to ensure safe and predictable flight performance. The UAV shall feature advanced flight-control electronics that maintain stable operation under varying flight conditions and payload configurations. These systems will prioritize redundancy, allowing the drone to safely land even if certain critical components fail during flight operations.
 
+##### Flight Controller:
+
+The aircraft SHALL be equipped with a Pixhawk flight controller.
+
+##### GPS Module:
+
+The aircraft SHALL have redundant high-accuracy GPS antennas to support reliable navigation.
+
+##### Radar Altimeter:
+
+The aircraft SHALL include a radar altimeter for precise altitude measurements, particularly during low-altitude operations.
+
+##### Telemetry:
+
+The aircraft SHALL support real-time telemetry data transmission with a range of 5 km.
+
+##### Motors:
+
+The aircraft’s motors SHALL be capable of providing sufficient thrust to maintain hover with full payload between 50% - 60% throttle.
+
+##### Propellers:
+
+- The propellers SHALL be large and efficient to maximize lift and minimize power consumption.
+
+- The propellers SHOULD be foldable, if feasible, to support ease of storage and transport.
+
+##### ESCs:
+
+The aircraft’s ESCs SHALL be compatible with a up to a 14S power supply, integrate with the CAN bus for precise motor control, and provide sufficient current to meet motor requirements.
+
 ### 2.2 Structural Integrity and Components
 
-The structural frame shall leverage commercially available, off-the-shelf components to enable rapid assembly and ease of replacement. The chosen materials must be lightweight yet strong enough to sustain heavy lift operations, accommodating considerable payload capacities without compromising durability or structural safety. Additionally, the structural configuration must allow flexibility for future iterations.
+The structural frame shall leverage commercially available, off-the-shelf, or easily manufacturable components to enable rapid assembly and ease of replacement. The chosen materials must be lightweight yet strong enough to sustain heavy lift operations, accommodating considerable payload capacities without compromising durability or structural safety. Additionally, the structural configuration must allow flexibility for modifications and additions in future iterations.
+
+##### Airframe:
+
+The aircraft SHALL incorporate a durable carbon fiber or aluminum frame capable of supporting a maximum take-off weight (MTOW) of 25 kg and SHALL be designed to accommodate various payload configurations.
+
+The airframe SHALL be constructed using:
+
+-   Commonly available off-the-shelf components
+    
+-   Common material processing methods.
+    
+
+The aircraft’s motor arms SHALL be foldable to enhance portability and ease of deployment.
+
+##### Landing Gear:
+
+The aircraft’s landing gear SHALL be shock-absorbing and support the full MTOW during landing, including in hard-landing scenarios
+
+##### Modular Design:
+
+The aircraft SHALL be designed with modular, easily replaceable arms, motors, and ESCs to facilitate streamlined maintenance.
 
 ### 2.3 Electrical Systems and Power Management
 
 A simplified and robust electrical system shall be designed, ensuring reliability and ease of troubleshooting. Commercially available battery packs must support adequate flight durations, providing sufficient power for continuous flight under maximum payload conditions. The power system should include protective features such as circuit breakers or fuses, mitigating the risk of electrical overload or failures.
 
+##### Battery:
+
+The aircraft SHALL use a 12S or 14S LiPo or Li-ion battery with sufficient capacity to meet endurance requirements.
+
+##### Battery Management System (BMS):
+
+The BMS SHALL monitor battery health, temperature, and charge/discharge rates to ensure optimal battery performance and safety.
+
+##### HV Kill Switch:
+
+The aircraft SHALL have a kill switch for the high-voltage electrical network.
+
+##### LV Kill Switch:
+
+The aircraft SHALL have a kill switch for the low-voltage electrical network.
+
+##### Power Distribution Board (PDB):
+
+The PDB SHALL provide stable 12S or 14S power distribution to all critical components.
+
+##### Battery Case:
+
+The battery SHALL be housed in a case permitting easy swap for rapid replacement in the field.
+
+##### Charging:
+
+The aircraft SHALL NOT require in-aircraft battery charging capabilities.
+
+##### Hover Time Without Payload:
+
+The aircraft SHALL provide at least 25 minutes of hover endurance without payload.
+
+##### Battery Reserve:
+
+The aircraft SHALL ensure a 20% battery reserve upon landing for safety considerations.
+
+##### Cooling System:
+
+The aircraft SHALL incorporate an effective cooling system for motors, ESCs, and the battery, if necessary, to maintain consistent performance during prolonged flights.
+
+##### Health Monitoring:
+
+The aircraft SHALL provide real-time monitoring of ESC and battery health.
+
+##### Pre-Flight Diagnostics:
+
+The aircraft SHALL include a pre-flight diagnostics system to battery levels, GPS accuracy, radar altimeter functionality, and sensor health before each flight.
+
+##### Heading Indicator LEDs:
+
+The aircraft SHALL include LEDs with predefined colors around it to indicate its direction.
+
 ### 2.4 Payload Integration and Imaging
 
 The UAV prototype shall integrate a stabilized camera system mounted on a gimbal, providing steady, high-quality video feeds to ground operators. An adaptable payload attachment mechanism must enable rapid payload swaps in-field, thus maximizing versatility across various mission profiles.
 
+##### Payload Capacity:
+
+The aircraft SHALL be capable of carrying at least 7 kg of payload during any mission.
+
+##### Quick-Release Mounting:
+
+The payload attachment system SHALL incorporate a modular quick-release mechanism, allowing for the attachment of various payloads with minimal setup time.
+
+##### CAN Integration:
+
+The payload system SHALL support CAN bus integration to facilitate seamless data communication between the payload and the flight controller.
+
+##### 12V Power Feed:
+
+The aircraft SHALL provide a dedicated 12V power line for powering payloads, adaptable to a variety of equipment.
+
+#####  Front-Facing Camera:
+
+The aircraft SHALL be equipped with a fixed front-facing camera for navigation or visual feedback.
+
+#####  Down-Facing Camera:
+
+The aircraft SHALL include a fixed downward-facing camera for mission support and landing assistance.
+
+#####  Video Telemetry Range:
+
+The video telemetry SHALL have 1 km of range.
+
 ### 2.5 Flight Testing and Verification
 
 A comprehensive testing program is required for PT1, verifying core flight performance, structural strength, electrical reliability, and payload handling capabilities. Testing should document essential parameters and establish baseline operational limits, providing valuable data to inform subsequent design iterations.
+
+### 2.6 Regulatory Compliance
+
+PT1, and all subsequent Quiver systems shall be built to comply with [CFR Part 107 Small Unmanned Aircraft Systems](https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-107) standards and requirements.
 
 ----------
 
@@ -116,53 +254,75 @@ A comprehensive testing program is required for PT1, verifying core flight perfo
 
 ### 3.1 Flight-Critical Systems
 
--   **Flight Controller**: Utilize Pixhawk or an equivalent open source controller capable of advanced flight management, precision navigation, and autonomous flight modes. Must include redundancy across critical sensors (IMU, GPS, barometer).
--   **Navigation Sensors**: Include dual GNSS modules, providing high accuracy positioning with Real-Time Kinematics (RTK) support to facilitate precise waypoint navigation and payload delivery.
+-   Flight Controller: Utilizes a Pixhawk 6X flight management System, precision navigation, and autonomous flight modes. Must include redundancy across critical sensors (IMU, GPS, barometer).
+    
+-   Navigation Sensors: Include dual GNSS modules, providing high accuracy positioning with the possibility of extension to Real-Time Kinematics (RTK) support to facilitate precise waypoint navigation and payload delivery.
+    
 
 ### 3.2 Structure and Geometry
 
--   **Frame Material**: Employ carbon fiber tubes interconnected with aluminum joints for strength-to-weight optimization. The frame configuration shall accommodate interchangeable arm sections to simplify repairs and upgrades.
--   **Maximum Takeoff Weight (MTOW)**: Prototype must support a total weight exceeding 25 kg.
--   **Payload Capacity**: Minimum payload capability of 10 kg is required to validate heavy-lift capabilities.
--   **Structural Safety Factor**: Structural integrity must ensure a safety factor of at least 2.5 times the maximum anticipated operational loads.
+-   Frame Material: Employ carbon fiber tubes interconnected with aluminum joints for strength-to-weight optimization. The frame configuration shall be aluminum plating able to accommodate interchangeable arm sections to simplify repairs and upgrades.
+    
+-   Maximum Takeoff Weight (MTOW): Prototype must support a total weight exceeding 25 kg.
+    
+-   Payload Capacity: Minimum payload capability of 10 kg is required to validate heavy-lift capabilities.
+    
+-   Structural Safety Factor: Structural integrity must ensure a safety factor of at least 2.5 times the maximum anticipated operational loads.
+    
 
 ### 3.3 Propulsion and Power
 
--   **Motors and ESCs**: Select commercial-grade brushless DC motors rated for 12S to 14S battery configurations, paired with ESCs capable of sustaining at least 80A continuous current, ensuring sufficient thrust-to-weight performance.
--   **Battery System**: LiPo or Li-Ion battery packs rated at 12S or 14S voltage levels must guarantee a minimum of 20 minutes endurance under fully loaded conditions.
--   **Propellers**: Integrate foldable carbon-fiber propellers optimized specifically for heavy-lift efficiency, minimizing noise and maximizing flight endurance.
+-   Motors and ESCs: Select commercial-grade brushless DC motors rated for 12S to 14S battery configurations, paired with ESCs capable of sustaining at least 80A continuous current, ensuring sufficient thrust-to-weight performance.
+    
+-   Battery System: LiPo or Li-Ion battery packs rated at 12S or 14S voltage levels must guarantee a minimum of 20 minutes endurance under fully loaded conditions.
+    
+-   Propellers: Integrate foldable carbon-fiber propellers optimized specifically for heavy-lift efficiency, minimizing noise and maximizing flight endurance.
+    
 
 ### 3.4 Electrical Systems
 
--   **Electrical Layout**: Wiring harnesses shall be modular and clearly labeled for ease of maintenance and fault isolation. All wiring must be heat-resistant and abrasion-resistant to withstand harsh operational environments.
--   **Power Distribution**: Install dedicated circuit breakers or resettable fuses to protect critical flight electronics and payload circuits from potential short circuits or electrical surges.
+-   Electrical Layout: Wiring harnesses shall be modular and clearly labeled for ease of maintenance and fault isolation. All wiring must be heat-resistant and abrasion-resistant to withstand harsh operational environments.
+    
+-   Power Distribution: Install dedicated circuit breakers or resettable fuses to protect critical flight electronics and payload circuits from potential short circuits or electrical surges.
+    
 
 ### 3.5 Payload Handling and Camera
 
--   **Gimbal System**: Implement a 3-axis stabilized gimbal, providing precise control of camera orientation to deliver steady footage even in turbulent flight conditions.
--   **Camera Capabilities**: Equip PT1 with a camera capable of delivering at least 1080p resolution at 30fps, streaming live footage directly to the ground control system with minimal latency.
--   **Payload Attachment Interface**: Establish a quick-release payload rail system with adjustable balance points, enabling secure payload attachment and easy in-field interchangeability.
+-   Gimbal System: Implement a 3-axis stabilized gimbal, providing precise control of camera orientation to deliver steady footage even in turbulent flight conditions.
+    
+-   Camera Capabilities: Equip PT1 with a camera capable of delivering at least 1080p resolution at 30fps, streaming live footage directly to the ground control system with minimal latency.
+    
+-   Payload Attachment Interface: Establish a quick-release payload rail system with adjustable balance points, enabling secure payload attachment and easy in-field interchangeability.
+    
 
 ### 3.6 Flight Control and Telemetry
 
--   **Communication Systems**: Employ telemetry links capable of maintaining reliable communication over distances of at least 2 km, utilizing 900 MHz or 2.4 GHz bands, backed by a redundant 433 MHz communication link as a fallback option.
--   **Ground Control Station (GCS)**: Real-time telemetry data, including flight parameters, payload conditions, and battery health, must be continuously transmitted to the operator’s interface.
+-   Communication Systems: Employ telemetry links capable of maintaining reliable communication over distances of at least 2 km, utilizing 900 MHz or 2.4 GHz bands, backed by a redundant 433 MHz communication link as a fallback option.
+    
+-   Ground Control Station (GCS): Real-time telemetry data, including flight parameters, payload conditions, and battery health, must be continuously transmitted to the operator’s interface.
+    
 
 ### 3.7 Environmental and Operational Specifications
 
--   **Operating Temperature**: The drone shall reliably operate in a temperature range from -10°C to +45°C, enabling effective use in diverse environmental conditions.
--   **Wind and Moisture Resistance**: Prototype must maintain stable flight control in wind speeds up to 25 km/h and include basic splash-resistant protection for electrical and propulsion systems, protecting against incidental moisture exposure.
+-   Operating Temperature: The drone shall reliably operate in a temperature range from -10°C to +45°C, enabling effective use in diverse environmental conditions.
+    
+-   Wind and Moisture Resistance: Prototype must maintain stable flight control in wind speeds up to 25 km/h and include basic splash-resistant protection for electrical and propulsion systems, protecting against incidental moisture exposure.
+    
 
 ### 3.8 Maintenance, Assembly, and Documentation
 
--   **Assembly Instructions**: BOMs and detailed assembly instructions should be created and provided.
--  **Assembly Efficiency**: Assembly of the UAV, including installation of payloads and batteries, shall be achievable within 60 minutes by trained personnel from packaged state.
--   **Maintenance Schedule**: A clear and concise maintenance manual detailing procedures and inspection intervals must be provided.
+-   Assembly Instructions: BOMs and detailed assembly instructions should be created and provided.
+    
+-   Assembly Efficiency: Assembly of the UAV, including installation of payloads and batteries, shall be achievable within 60 minutes by trained personnel from packaged state.
+    
+-   Maintenance Schedule: A clear and concise maintenance manual detailing procedures and inspection intervals must be provided.
+    
 
 ### 3.9 Flight Testing and Validation
 
--   **Initial Flight Tests**: Conduct controlled test flights covering hover stability, maneuverability, payload management, and endurance under realistic operational scenarios. All results and incidents should be carefully documented.
--   **Documentation**: Provide comprehensive documentation, including flight logs, inspection reports, photographic and video evidence of successful testing outcomes, ensuring traceability of performance improvements for future iterations.
+-   Initial Flight Tests: Conduct controlled test flights covering hover stability, manoeuvrability, payload management, and endurance under realistic operational scenarios. All results and incidents should be carefully documented.
+    
+- Documentation: Provide comprehensive documentation, including flight logs, inspection reports, photographic and video evidence of successful testing outcomes, ensuring traceability of performance improvements for future iterations.
 
 # 4. **Mission Performance**
 
