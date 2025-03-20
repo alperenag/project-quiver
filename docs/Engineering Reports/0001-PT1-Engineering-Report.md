@@ -8,17 +8,17 @@ Spearhead Engineering Report: https://docs.google.com/document/d/11yaRfGD6EVfLsO
 
 # 1. **Introduction**
 
-The purpose of Project Quiver is to design and manufacture a practical multi-purpose multi-rotor unmanned aerial vehicle. Its purpose is to promote Arrow's decentralized organization to explore the commercial aviation service market and generate new concepts for the manufacturing process of subsequent unmanned and manned aircraft models, to explore new materials, new structures, new communication protocol and other related technologies. And try to break the current lack of innovation in the drone market around the United States and even the world by Internet collaborate and decentralized finance (DeFi).   
+The purpose of Project Quiver is to design and manufacture a practical multi-purpose multi-rotor unmanned aerial vehicle. Its purpose is to promote Arrow's decentralized organization to explore the commercial aviation service market, generate new concepts for the manufacturing process of subsequent unmanned and manned aircraft models, to explore new materials, new structures, new communication protocol and other related technologies, a try to break the current lack of innovation in the drone market around the United States and even the world by Internet collaborate and decentralized finance (DeFi).   
 
 This aircraft is designed to perform typical light UAV missions. The design concept is: compact and portable, easy to manufacture, easy to maintenance, highly reliable, highly adaptable, and expandable.
 
-The PT1 prototype of Project Quiver contains the following features:
+The First Prototype (PT1) of this Project Quiver will contains the following features:
 - Having a common quadcopter layout to ensure energy efficiency and simplified structure.
 - The designated maximum mission load is 25 kg. Considering the safety factor, the designated maximum thrust force is about 45 to 50 kg.
 - The motor beams and propellers can be fold to the side of the cockpit for optimizing storage and transportation.
 - Standardized quick-release mission equipment pylon (Attachment interface).
-- Designed for common functions supported by the digital autopilot system, such as GNSS-assist hovering, waypoint missions, radar altimeter, etc.
-- Designed for FPV camera with video transmission to assist pilot decision and various mission actions.
+- Has the functions supported by the digital autopilot system, such as GNSS-assist hovering, waypoint missions, radar altimeter, etc.
+- Has FPV camera with video transmission to assist pilot decision and various mission actions.
 - Powered with 14-cell LiHV smart battery and advanced main power connectors commonly used by heavy drones.
 - Partially CAN bus design for signal communication to avoid electromagnetic interference that traditional non-differential signals such as PWM may be subject to.
 - Using digitalized sensor communication to monitor more components, such as battery cell temperature and ESC temperature.
@@ -30,21 +30,21 @@ Based on the above characteristics, Project Quiver will also try to compete with
 - Dedicated PDB system
 - Dedicated battery pack
 - Dedicated thrust system ESC
-- Integrated 3D printing structure
+- Integrated 3D printed structure
 - Hazard protect airframe
 - Multiple mission attachment interfaces
 - Retractable landing gear
 - Emergency ballistic parachute
 - LiDAR navigation
 - Dedicated ground control software
-- ...
+- etc
 
-The initial version (PT1) doesn't have a waterproof and dustproof design, the only one attachment interface of the aircraft was located on the belly of the cockpit, and flight controller unit (FCU) was located on the top of the battery enclosure and exposed to open air for easier configuration operations.   
+The initial version (PT1) doesn't have a waterproof and dustproof design, the only one attachment interface of the aircraft was located on the belly of the cockpit, and flight controller unit (FCU) was located on the top of the battery enclosure and exposed in the open for easier configuration operations.   
   
-The first mission equipment is the herbicide dispenser "Brush Pod" (or "Brush bullet dispener"), and the first experimental commercial project is corresponding vegetation analysis and aerial dispensing services. "Brush Pod" was installed through the standardized attachment interface on the cockpit.
+The first and current piece of mission equipment is a herbicide dispenser "Brush Pod" (or "Brush bullet dispener"), and the first experimental commercial project is corresponding vegetation analysis and aerial dispensing services. "Brush Pod" will be installed through the standardized attachment interface on the cockpit.
   
-The common design process of Project Quiver will uses Onshape and Fusion 360 to be the CAD/CAM software. They will mainly uses for overall layout, structure design and finite element method (FEA) analysis.   
-Since the project does not specified the use of which industrial design software, the design personnel could use any software and workflow they familiar with. Therefore, while working between multiple software, STEP or other similar formats could be used as data exchange formats.  
+The common design process of Project Quiver will be to use Onshape and Fusion 360 for CAD/CAM software. They will mainly be used for overall layout, structure design and finite element method (FEA) analysis.   
+Since the project does not specifiy the use of industrial design software, design personnel could use any software and workflow they are familiar with. Therefore, while working between multiple software, STEP or other similar formats could be used as data exchange formats.  
 
 <!-- Chinese origin 中文原文（未纠错和润色）
 
