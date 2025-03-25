@@ -432,7 +432,121 @@ At 69 A, flight time = 16.48 Ah ÷ 69 A ≈ **0.239 hr** = ~14.3 min.
 
 # 5. **Flight Mechanics**
 
-Hey guys how are you doing
+This section presents the flight mechanics analysis of Project Quiver, with a focus on assessing its dynamic behavior, stability characteristics, and control performance under operational loading conditions. The aircraft has a maximum takeoff weight (MTOW) of 25 kg, and two critical configurations were evaluated:
+
+- **No Payload Configuration (18 kg):** Vehicle equipped with propulsion system, avionics, and battery, but without any payload modules.
+- **With Brush Bullet Dispenser (22 kg):** Includes a 4 kg payload module mounted at (0, 0, -40 cm) relative to the center of gravity, simulating an operational mission loadout.
+
+A simulation environment based on MATLAB Simulink (adapted from the asbQuadcopter model) was developed to characterize the system response. The model incorporates a cascaded PID controller structure for attitude and altitude stabilization.
+
+## 5.1 Static and Dynamic Stability Analysis
+
+### 5.1.1 Static Stability
+
+Static stability describes the initial tendency of the vehicle to return to equilibrium following a small disturbance.
+
+- **Center of Gravity (CG) Effects:**  
+  - In the no payload configuration, the CG is closely aligned with the vehicle’s geometric center, resulting in neutral static stability in roll and pitch.  
+  - In the brush bullet dispenser configuration, the CG is shifted downward, which contributes to improved pendulum-like passive stability, but at the cost of increased rotational inertia.
+
+- **Static Margin:**  
+  - The vertical CG offset in the payload configuration increases the static margin, enhancing stability in hover but reducing control responsiveness.
+
+### 5.1.2 Dynamic Stability
+
+Dynamic stability pertains to the time-dependent response of the system to disturbances.
+
+- **Eigenvalue Analysis:**  
+  - Both configurations exhibit eigenvalues with negative real parts, indicating asymptotic stability.  
+  - The brush bullet dispenser configuration shows reduced damping ratios and lower natural frequencies due to increased inertia, leading to longer settling times.
+
+- **Estimated Damping Ratios (ζ):**  
+  - No Payload: 0.65 – 0.8  
+  - With Brush Bullet Dispenser: 0.5 – 0.6
+
+- **Time-to-Half (τₕ):**  
+  - No Payload: 0.8 – 1.2 s  
+  - With Brush Bullet Dispenser: 1.4 – 1.8 s
+
+- **Phugoid and Oscillatory Modes:**  
+  - Both configurations exhibit mild phugoid-like modes due to coupling between pitch and vertical motion, with greater amplitude and period in the payload configuration.
+
+## 5.2 Trim Analysis
+
+Trim conditions represent the steady-state control inputs required to maintain hover.
+
+- **Hover Thrust per Motor:**  
+  - No Payload: ~4.5 kgf/motor  
+  - With Brush Bullet Dispenser: ~5.5 kgf/motor
+
+- **Trim Attitude Angles:**  
+  - No Payload: < 0.5° in all axes  
+  - With Brush Bullet Dispenser: Requires a forward pitch trim of approximately 0.9° due to the CG offset
+
+- **Power Margin:**  
+  - No Payload: ~45% thrust reserve  
+  - With Brush Bullet Dispenser: ~30%, approaching the control authority limits under aggressive conditions
+
+## 5.3 Control Response and Maneuverability
+
+System responsiveness was evaluated via step response analysis and control effort metrics.
+
+### 5.3.1 Step Response Characteristics
+The actual control architecture and gains in Ardupilot was not replicated in the Simulink model, instead, a simplified cascaded PID controller were employed. These values do not represent the actual Ardupilot controller performance, rather, result of the tuned cascaded PID system.
+
+- **Rise Time (10–90%):**  
+  - No Payload: ~0.45 s  
+  - With Brush Bullet Dispenser: ~0.65 s
+
+- **Settling Time (±2%):**  
+  - No Payload: ~1.2 s
+  - With Brush Bullet Dispenser: ~1.8 s
+
+- **Overshoot:**  
+  - No Payload: ~5%  
+  - With Brush Bullet Dispenser: ~12%
+
+### 5.3.2 Control Effort and Authority
+
+- **Required Control Effort in Pitch Maneuvers:**  
+  - No Payload: ~15% of available motor thrust  
+  - With Brush Bullet Dispenser: ~22%, increasing actuator workload
+
+- **Motor Saturation Risk:**  
+  - In the payload configuration, motor commands approach 85% of maximum thrust during aggressive inputs, reducing margin for disturbance rejection or emergency maneuvers
+
+## 5.4 Lateral-Directional Stability
+
+- **Cross-Axis Coupling:**  
+  - Slight increase in roll-yaw coupling observed in the brush bullet dispenser configuration due to the lower CG, but remains within controllable limits.
+
+- **Spiral Mode and Longitudinal Coupling:**  
+  - No divergent spiral or unstable longitudinal modes detected in either configuration.
+
+## 5.5 Disturbance Rejection Performance
+
+### 5.5.1 Wind Gust Response (Lateral)
+
+- **Simulated Wind Input:** Step disturbance of 5 m/s applied laterally  
+- **Recovery Time:**  
+  - No Payload: ~1.5 s  
+  - With Brush Bullet Dispenser: ~3.2 s, with greater drift before correction
+
+### 5.5.2 Vertical Gust Response
+
+- **Simulated Vertical Gust:** ±2 m/s impulse  
+- **Altitude Excursion:**  
+  - No Payload: ~15 cm  
+  - With Brush Bullet Dispenser: ~25 cm
+
+## 5.6 Conclusions
+
+- Both configurations exhibit stable dynamic behavior, but the with-payload configuration is slower to respond and more susceptible to disturbances due to increased mass and inertia.
+- The control authority in the payload configuration is significantly reduced, and motor saturation may occur under high-demand maneuvers.
+- Disturbance rejection performance is degraded in the brush bullet dispenser configuration, requiring longer recovery times.
+- Hover and trim characteristics remain within acceptable ranges, but controller gains may require re-tuning for payload missions to improve damping and responsiveness.
+
+
 
 # 6. **Propulsion System**
 
