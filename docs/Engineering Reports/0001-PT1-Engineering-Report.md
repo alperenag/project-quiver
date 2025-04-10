@@ -606,7 +606,7 @@ The **Tattu 14S HV 30000mAh Smart Battery** is chosen for its integrated battery
 | 4   | Hobbywing XRotor X6 Plus integrated propulsion system | MOTOR,PROP,ESC, RR | 710        |
 | 5   | TATTU 14S HV 30000mAh Smart Battery                   | BATTERY, MAIN      | 11250      |
 
-## Table 3. Propulsion System Mechanical Interfaces
+##Propulsion System Mechanical Interfaces
 
 The Hobbywing XRotor X6 Plus integrated propulsion system must be mounted on a 30 mm diameter tube, with cables routed internally. The system is secured using four included screws.
 
