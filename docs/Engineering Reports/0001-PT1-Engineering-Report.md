@@ -1,35 +1,30 @@
 # **Project Quiver PT1 Engineering Report**
 
-Chapter assignment: https://docs.google.com/spreadsheets/d/1HtNkbYEaUmdiHmNGzjgIHoH00VwN5BeEsrYEDDL5YV4/edit?gid=0#gid=0
-
-Spearhead Engineering Report: https://docs.google.com/document/d/11yaRfGD6EVfLsOcSKlHVtQumxKxEsTgK/edit
-
----
-
 # 1. **Introduction**
 
-The purpose of Project Quiver is to design and manufacture a practical multi-purpose multi-rotor unmanned aerial vehicle. Its purpose is to promote Arrow's decentralized organization to explore the commercial aviation service market, generate new concepts for the manufacturing process of subsequent unmanned and manned aircraft models, to explore new materials, new structures, new communication protocol and other related technologies, a try to break the current lack of innovation in the drone market around the United States and even the world by Internet collaborate and decentralized finance (DeFi).   
+The purpose of Project Quiver is to design and manufacture a practical multi-purpose multi-rotor unmanned aerial vehicle. This aligns with Arrow’s mission of developing manned and unmanned aircraft for the commercial aviation market while generating new concepts in manufacturing, materials science, structural design, and related technologies. Equipped with internet native collaborators and Web3 infrastructure, Arrow aims to break up the lack of innovation in the global drone market.   
 
-This aircraft is designed to perform typical light UAV missions. The design concept is: compact and portable, easy to manufacture, easy to maintenance, highly reliable, highly adaptable, and expandable.
+This aircraft is designed to perform typical light UAV missions. The design concept is: compact and portable, easy to manufacture, easy to maintain, highly reliable, highly adaptable, and expandable.
 
-The First Prototype (PT1) of this Project Quiver will contain the following features:
-- Having a common quadcopter layout to ensure energy efficiency and simplified structure.
-- The designated maximum mission load is 25 kg. Considering the safety factor, the designated maximum thrust force is about 45 to 50 kg.
-- The motor beams and propellers can be fold to the side of the cockpit for optimizing storage and transportation.
+The First Prototype (PT1) of Project Quiver will feature:
+- A common quadcopter layout to ensure energy efficiency and simplified structure.
+- Maximum mission load of 25 kg. Considering the safety factor, the designated maximum thrust force is about 45 to 50 kg.
+- Foldable motor beams and propellers for ease of storage and transportation.
 - Standardized quick-release mission equipment pylon (Attachment interface).
-- Has the functions supported by the digital autopilot system, such as GNSS-assist hovering, waypoint missions, radar altimeter, etc.
-- Has FPV camera with video transmission to assist pilot decision and various mission actions.
+- Digital autopilot system assisted features, such as GNSS-assist hovering, waypoint missions, radar altimeter, etc.
+- FPV camera with video transmission to assist pilot decision and various mission actions.
 - Powered with 14-cell LiHV smart battery and advanced main power connectors commonly used by heavy drones.
-- Partially CAN bus design for signal communication to avoid electromagnetic interference that traditional non-differential signals such as PWM may be subject to.
+- CAN bus for signal communication to avoid electromagnetic interference that traditional non-differential signals such as PWM may be subject to.
 - Using digitalized sensor communication to monitor more components, such as battery cell temperature and ESC temperature.
-- Using integrated thrust terminal to improve the reliability and design convenience of the thrust system, also for easier sourcing, installing and initial testing.
-- Using large PDB and circuit breakers which previous designed for Project Feather to improve the safety and controllability of the power distributing system.
+- ~~Using integrated thrust terminal to improve the reliability and design convenience of the thrust system, also for easier sourcing, installing and initial testing.~~
+- single source, fully integrated motor arm with propulsion system for easier sourcing, installation, and testing. 
+- Implement testbed PDB and contactor from Project Feather for safe operation of the power distribution system.
 
-Based on the above characteristics, Project Quiver will also try to compete with other UAVs on the market in terms of parameters such as endurance, empty weight ratio, open source level, and mission equipment selections. It's also expected to gradually introduce more advanced designs including but not limited to the following items in future prototypes:
-- Reak-Time Kinematic (RTK) high-precision GNSS positioning
+Based on these characteristics, Project Quiver will also compete with other UAVs in the market in terms of parameters such as endurance, empty weight ratio, open source development, and mission equipment. It's also expected to gradually introduce more advanced designs including but not limited to the following items in future prototypes: The following features will be introduced in future prototypes:
+- Real-Time Kinematic (RTK) high-precision GNSS positioning
 - Dedicated PDB
-- Dedicated battery pack
-- Dedicated thrust system ESC
+- Custom battery pack
+- Custom ESC
 - Integrated 3D printed structure
 - Hazard protect airframe
 - Multiple mission attachment interfaces
@@ -37,14 +32,13 @@ Based on the above characteristics, Project Quiver will also try to compete with
 - Emergency ballistic parachute
 - LiDAR navigation
 - Dedicated ground control software
-- etc
+- etc.
 
-The initial version (PT1) doesn't have a waterproof and dustproof design, the only one attachment interface of the aircraft was located on the belly of the cockpit, and flight controller unit (FCU) was located on the top of the battery enclosure and exposed in the open for easier configuration operations.   
-  
-The first and current piece of mission equipment is a herbicide dispenser "Brush Pod" (or "Brush bullet dispener"), and the first experimental commercial project is corresponding vegetation analysis and aerial dispensing services. "Brush Pod" will be installed through the standardized attachment interface on the cockpit.
-  
-The common design process of Project Quiver will be to use Onshape and Fusion 360 for CAD/CAM software. They will mainly be used for overall layout, structure design and finite element method (FEA) analysis.   
-Since the project does not specifiy the use of industrial design software, design personnel could use any software and workflow they are familiar with. Therefore, while working between multiple software, STEP or other similar formats could be used as data exchange formats.  
+PT1 is neither water nor dustproof and includes a single standardized attachment interface on the cockpit’s underside. The flight controller unit (FCU) remains exposed atop the battery enclosure for simplicity.
+
+The initial mission equipment, a standardized quick-release "Brush Pod" herbicide dispenser, is designed for commercial aerial vegetation management.
+
+Project Quiver utilized Onshape and Fusion 360 for structural design, layout, and finite element analysis (FEA). Flexible software selection enabled team members to leverage their preferred tools and workflows, facilitating interoperability through STEP and similar formats.
 
 
 <!-- Chinese origin 中文原文（未纠错和润色）
@@ -284,7 +278,7 @@ PT1, and all subsequent Quiver systems shall be built to comply with [CFR Part 1
 
 -   Electrical Layout: Wiring harnesses shall be modular and clearly labeled for ease of maintenance and fault isolation. All wiring must be heat-resistant and abrasion-resistant to withstand harsh operational environments.
     
--   Power Distribution: Install dedicated circuit breakers or resettable fuses to protect critical flight electronics and payload circuits from potential short circuits or electrical surges.
+-   Power Distribution: Install dedicated circuit switches to protect critical flight electronics and payload circuits from potential short circuits or electrical surges.
     
 
 ### 3.5 Payload Handling and Camera
@@ -321,9 +315,10 @@ PT1, and all subsequent Quiver systems shall be built to comply with [CFR Part 1
 
 ### 3.9 Flight Testing and Validation
 
--   Initial Flight Tests: Conduct controlled test flights covering hover stability, manoeuvrability, payload management, and endurance under realistic operational scenarios. All results and incidents should be carefully documented.
+-   Initial Flight Tests: Conduct controlled test flights covering hover stability, maneuverability, payload management, and endurance under realistic operational scenarios. All results and incidents should be carefully documented.
     
 - Documentation: Provide comprehensive documentation, including flight logs, inspection reports, photographic and video evidence of successful testing outcomes, ensuring traceability of performance improvements for future iterations.
+
 
 # 4. **Mission Performance**
 
@@ -334,7 +329,7 @@ Key assumptions:
 - **Usable Battery**: 21.6 Ah (after 2C derating to ~27 Ah, then a 20% reserve).  
 - **Propulsion**: 4 Hobbywing X6 Plus motors.  
 - **Mission Legs**: short, fixed‐time take‐off, climb, descent, landing; the remaining time is the main mission leg.
-- **Real-World Effects**: Climb rates, aerodynamic efficiency, battery health, and environmental conditions do not affect the performance..  
+- **Real-World Effects**: Climb rates, aerodynamic efficiency, battery health, and environmental conditions do not affect the performance.  
 
 ## 4.1. Surveillance Mission
 
@@ -429,11 +424,15 @@ At 69 A, flight time = 16.48 Ah ÷ 69 A ≈ **0.239 hr** = ~14.3 min.
 **Total Loiter Flight Time**  
 - Non‐mission legs: 1.0 + 2.0 + 1.0 + 1.0 = 5.0 min  
 - Forward flight: ~14.3 min  
-- **Overall**: ~19.3 min  
+- **Overall**: ~19.3 min
+
+## 4.3. Summary
+
+Under ideal conditions, Project Quiver PT1 achieves a total flight time of approximately 31.4 minutes for surveillance missions at 20 kg MTOW, including about 27.4 minutes of hover. For waypoint missions at the full 25 kg MTOW, total flight time is around 19.3 minutes, with roughly 14.3 minutes of forward flight. Both mission scenarios incorporate a 20% battery reserve to ensure operational safety. Actual performance may vary due to environmental conditions and operational factors.
 
 # 5. **Flight Mechanics**
 
-This section presents the flight mechanics analysis of Project Quiver, with a focus on assessing its dynamic behavior, stability characteristics, and control performance under operational loading conditions. The aircraft has a maximum takeoff weight (MTOW) of 25 kg, and two critical configurations were evaluated:
+This section presents the flight mechanics analysis of Project Quiver, with a focus on assessing its dynamic behavior, stability characteristics, and control performance under operational loading conditions. The aircraft has a maximum MTOW of 25 kg, and two critical configurations were evaluated:
 
 - **No Payload Configuration (18 kg):** Vehicle equipped with propulsion system, avionics, and battery, but without any payload modules.
 - **With Brush Bullet Dispenser (22 kg):** Includes a 4 kg payload module mounted at (0, 0, -40 cm) relative to the center of gravity, simulating an operational mission loadout.
@@ -493,7 +492,7 @@ Trim conditions represent the steady-state control inputs required to maintain h
 System responsiveness was evaluated via step response analysis and control effort metrics.
 
 ### 5.3.1 Step Response Characteristics
-The actual control architecture and gains in Ardupilot was not replicated in the Simulink model, instead, a simplified cascaded PID controller were employed. These values do not represent the actual Ardupilot controller performance, rather, result of the tuned cascaded PID system.
+The actual control architecture and gains in Ardupilot were not replicated in the Simulink model, instead, a simplified cascaded PID controller was employed. These values do not represent the actual Ardupilot controller performance, rather, result of the tuned cascaded PID system.
 
 - **Rise Time (10–90%):**  
   - No Payload: ~0.45 s  
@@ -542,18 +541,18 @@ The actual control architecture and gains in Ardupilot was not replicated in the
 
 ## 5.6 Conclusions
 
-- Both configurations exhibit stable dynamic behavior, but the with-payload configuration is slower to respond and more susceptible to disturbances due to increased mass and inertia.
+- Both configurations exhibit stable dynamic behavior, but the payload configuration is slower to respond and more susceptible to disturbances due to increased mass and inertia.
 - The control authority in the payload configuration is significantly reduced, and motor saturation may occur under high-demand maneuvers.
-- Disturbance rejection performance is degraded in the brush bullet dispenser configuration, requiring longer recovery times.
+- Disturbance rejection performance is degraded in the payload configuration, requiring longer recovery times.
 - Hover and trim characteristics remain within acceptable ranges, but controller gains may require re-tuning for payload missions to improve damping and responsiveness.
 
 
 
 # 6. **Propulsion System**
 
-Based on the QUIVER project specifications, alternative manufacturers for electric motors, compatible propellers, and ESCs were evaluated.
+Based on the Quiver project specifications, the following manufacturers for electric motors, compatible propellers, and ESCs were evaluated.
 
-## Table X. Drone Propulsion System Comparison for 25 kg MTOW
+## Table 1. Drone Propulsion System Comparison for 25 kg MTOW
 
 | Feature                         | System 1                       | System 2                       | System 3                       | System 4                       | System 5                       | System 6                                     |
 | ------------------------------- | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | -------------------------------------------- |
@@ -597,7 +596,7 @@ The **Tattu 14S HV 30000mAh Smart Battery** is chosen for its integrated battery
 | **Max Continuous Discharge Current** | 180A (\~9 min discharge time)               |
 | **Peak Discharge Current**           | 220A (≤ 3s)                                 |
 
-## Table X. QUIVER Propulsion System Configuration
+## Table 2. QUIVER Propulsion System Configuration
 
 | #   | PART DESCRIPTION                                      | EQ DESIGNATION     | WEIGHT (g) |
 | --- | ----------------------------------------------------- | ------------------ | ---------- |
@@ -607,7 +606,7 @@ The **Tattu 14S HV 30000mAh Smart Battery** is chosen for its integrated battery
 | 4   | Hobbywing XRotor X6 Plus integrated propulsion system | MOTOR,PROP,ESC, RR | 710        |
 | 5   | TATTU 14S HV 30000mAh Smart Battery                   | BATTERY, MAIN      | 11250      |
 
-## Table X. Propulsion System Mechanical Interfaces
+## Table 3. Propulsion System Mechanical Interfaces
 
 The Hobbywing XRotor X6 Plus integrated propulsion system must be mounted on a 30 mm diameter tube, with cables routed internally. The system is secured using four included screws.
 
@@ -628,17 +627,17 @@ This section provides a comprehensive overview of the electrical design and inte
 
 ### 7.1 System Design and Layout
 
-#### Image X: Power Layout
+#### Image 1: Power Layout
 
 ![image](https://github.com/user-attachments/assets/6ae06f6c-2d1a-4417-bb88-1349a40b4968)
 
 
-#### Image X: Signal Layout
+#### Image 2: Signal Layout
 
 ![image](https://github.com/user-attachments/assets/0eddcddc-ba53-4643-984d-880e7c772a90)
 
 
-The electrical power layout is branched off into two sections. One line dedicated to providing HV power to the ESCs via contactor control on the Power PCB. This branch additonally provides power to the PCB for all of the outgoing connections and all internal components. 
+The electrical power layout is divided into two sections. One line dedicated to providing HV power to the ESCs via contactor control on the Power PCB. Additionally, it provides power to the PCB for all of the propulsion system and internal components. 
 The second line is providing HV to the UBEC to give steady and reliable power to the flight controller, telemetry air unit, and additional peripherals. The second line has a physical switch on the positive line before the UBEC to give the user control over power going to the flight controller. 
 
 The signal layout can be thought of mainly two sections, the ESCs to the flight controller and the PCB to the flight controller. These two sections will operate on separate CAN lines. The ESCs will connect to the flight controller's CAN 1 and use the DroneCAN protocol. The battery (currently unused) and the radar altimeter will connect to the CAN2 port. The only additional signal being used will be two aux GPIO signals coming from the pixhawk to the PCB for relay and contactor control 
@@ -871,7 +870,7 @@ On the PCB, the contactor works in hand with a pre-charge circuit for safe opera
 [CAD and Fab files](https://drive.google.com/drive/folders/1PsYq2oiq2gbZsiwGzrd3abQwZkTmpPvH)
 ![image](https://github.com/user-attachments/assets/00324fd2-4791-43d9-abb5-c59f96e81a34)
 
-Mouser BOM
+**Table 3. Mouser BOM**
 | Line | Part Number           | Qty Ordered | Qty Shipped | Backorder | Unit Price | Extended Price | Details                                                                                                                                                                                          |
 |------|-----------------------|-------------|-------------|-----------|------------|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1    | 504-AMX-300           | 1           | 1           | 0         | 9.310      | 9.31           | SD: F1 / AMX-300; Description: Bussmann / Eaton AMX Fuse, 300 A, 125 / Automotive Fuses; Info: US HTS:8536100040 ECCN:EAR99 COO:CN                                                       |
@@ -940,7 +939,7 @@ See Propulsion System section for detailed description on the [HobbyWing X6 Plus
 <summary><h4>Flight Controller</h4></summary>
 <br>
 
-[Pixhawk 6X Version ?](https://holybro.com/collections/autopilot-flight-controllers/products/pixhawk-6x)
+[Pixhawk 6X Version 1](https://holybro.com/collections/autopilot-flight-controllers/products/pixhawk-6x)
 
 ![image](https://github.com/user-attachments/assets/7f19ac07-1173-4e94-b70c-718d9ea098ff)
 
@@ -1020,9 +1019,9 @@ Interface & Ports:
 <summary><h4>Brush Bullet Dispenser</h4></summary>
 <br>
 
-[Brush Bullet Applicator Pod](https://brush-bullet.myshopify.com/products/applicator-pod) Variant 
+[Brush Bullet Applicator Pod](https://brush-bullet.myshopify.com/products/applicator-pod)  
 
-[Onshape Model](https://cad.onshape.com/documents/9d9eb91af3f6540b56a5ea5a/w/635a8ab526b8b9d145aa4388/e/e4f46004af7e190882276375)
+[Arrow Variant Onshape Model](https://cad.onshape.com/documents/9d9eb91af3f6540b56a5ea5a/w/635a8ab526b8b9d145aa4388/e/e4f46004af7e190882276375)
 
 ![brush-pod_assy (1)](https://github.com/user-attachments/assets/e8a8caf5-5a7f-42e7-b715-247fc49e1a25)
 
@@ -1061,12 +1060,12 @@ A relay is used to control the motor inside of the dispenser. 5V and GND provide
 ![image](https://github.com/user-attachments/assets/5576cf15-146d-442a-b9fa-a07dfc543800)
 
 
-#### Table X: TO/FROM Connections
+#### Table 4: TO/FROM Connections
 
 | FROM | Connector | TO | Connector | Cable Length (cm) | AWG | Type | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 12S Tattu Smart Battery | Tattu Adapter  | Power PCB | XT90 |  | 6  | 50V | Location (?) |
-| 12S Tattu Smart Battery  | Tattu Adapter | Power PCB | HDR 14POS R/A Pins 7&8 (J19) |  | 20 | CANB | J19 Pin 7 & 8 |
+| 14S Tattu Smart Battery | Tattu Adapter  | Power PCB | XT90 |  | 6  | 50V | Location (?) |
+| 14S Tattu Smart Battery  | Tattu Adapter | Power PCB | HDR 14POS R/A Pins 7&8 (J19) |  | 20 | CANB | J19 Pin 7 & 8 |
 | Power PCB POS Bus A | M5 Ring Terminal | Contactor A | M5 Ring Terminal | custom |  |  |  |
 | Contactor B  | M5 Ring Terminal | Power PCB POS Bus B | M5 Ring Terminal  | custom |  |  |  |
 | Contactor AUX | loose cables | PowerPCB  | Screw Terminal J8 | custom |  |  | will have to extend cables. Note current layout for wiring |
@@ -1096,9 +1095,6 @@ A relay is used to control the motor inside of the dispenser. 5V and GND provide
 | PM02D | XT30 (M or F?) | HM30 TX | XT30 M |  | 16 | 12V |  |
 | HM30 TX | Ethernet | SIYI A8 Gimbal  | 8 Pin Molex |  |  | LAN & PWR |  |
 
-#### Wiring Notes
-
-- Last minute change to wiring was done by connecting the UBEC directly to the battery adapter. A XXX connector was used with XX AWG cables to connect the UBEC to the same bolts being used for the compression lugs. 
 # 8. **Geometry & Structure**
 
 The design of this aircraft centers on accommodating frequent modifications and upgrades, preserving straightforward access to all key components. By employing a modular architecture and standardized interface points, the system can be quickly reconfigured or expanded to integrate novel sensors, payloads, or propulsion elements. Structural integrity is achieved through robust materials such as aluminum 7075 and 3D-printed carbon fiber nylon and connections that distribute loads uniformly. This approach enables the prototype to withstand potentially harsh landings, while finite element analysis (FEA) helps validate each subsystem’s load-bearing capacity. Furthermore, by minimizing mass through efficient structural layouts and selective material use, the aircraft maintains better flight performance, high agility, and reduced power consumption to extend operational times.
@@ -1126,6 +1122,8 @@ These dimensions ensure balanced weight distribution in both folded and unfolded
 ### Subsystem Weight Breakdown
 
 Below is an approximate weight breakdown for each major subsystem, noting the primary materials involved. These figures are meant to serve as general estimates and may vary based on final manufacturing processes, hardware choices, and tolerances.
+
+**Table 5. Subsystem Weight**
 
 | **Subsystem**          | **Material(s)**                           | **Approx. Weight** |
 | ---------------------- | ----------------------------------------- | ------------------ |
@@ -1187,7 +1185,7 @@ The avionic bay houses core navigation and control components, including flight 
 
 ---
 
-### Belly Equipment
+### Underside Equipment
 
 The underside of the aircraft provides a dedicated zone for mounting the attachment, radar altimeter, and the gimbal camera. The attachment is connected to an interface utilizing a quick release mechanism. The interface is connected to the chassis for better structural support. The gimbal camera is located on a 3D-printed holder to increase the view angle. The radar altimeter is placed so that the operational field of view is not affected by the attachment and the landing gear.
 
@@ -1223,6 +1221,3 @@ Will demonstrate how the structure will behave under the following forces
 
 
 # 9. **Appendix**
-
-Hey guys how are you doing
-
