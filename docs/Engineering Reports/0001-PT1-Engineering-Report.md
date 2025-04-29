@@ -1,6 +1,28 @@
-# **Project Quiver PT1 Engineering Report**
+# <p align="center">Project Quiver PT1 Engineering Report</p>  
+
+### *<p align="center">Authors:</p>*
+<p align="center">21stCenturyAlex</p> <p align="center">alperenag</p> <p align="center">errrks.eth</p> <p align="center">Julius</p> <p align="center">KBM (Dow Fisher K)</p> <p align="center">ZeynepB</p> 
+
+<br>
+<br>
+<br>
+<br>
+
+### *<p align="center">Editor:</p>*
+<p align="center">errrks.eth</p>
+<br>
+<br>
+
+*<p align="center">April 2025</p>*
 
 ![Screenshot 2025-04-09 225339](https://github.com/user-attachments/assets/750a092e-53ae-4686-815c-2f8678f57a84)
+
+<hr />
+<br>
+<br>
+<br>
+<br>
+
 
 
 # 1. **Introduction**
